@@ -1,0 +1,47 @@
+﻿<h1>AliHub.Graph.ImageContract</h1>
+<code>
+    namespace AliHub.Graph {<br />
+    &nbsp;&nbsp;&nbsp; export interface ImageContract { }<br />
+    }
+</code>
+<p>
+    This is a contract for rendering image in different ways.
+    It supports numbers of image type.
+</p>
+<ul>
+    <li>
+        Picture.<br />
+        See comment documentation of <code>AliHub.Graph.UrlImageContract</code>.
+    </li>
+    <li>
+        SVG.<br />
+        See comment documentation of <code>AliHub.Graph.SvgImageContract</code>.
+    </li>
+    <li>
+        String.<br />
+        See comment documentation of <code>AliHub.Graph.StringImageContract</code>.
+    </li>
+</ul>
+<h3>Samples</h3>
+<p>
+    To resolve the image element (perhaps it is not an <code>IMG</code> element),
+    you can follow the following sample.
+</p>
+<code>
+    // Creates an image info.<br />
+var info = {<br />
+&nbsp;&nbsp;&nbsp; &quot;type&quot;: &quot;url&quot;,<br />
+&nbsp;&nbsp;&nbsp; &quot;url&quot;: &quot;http://quark.alibaba.net/inc/images/figures/architecture_mvc.png&quot;<br />
+};<br />
+<br />
+// Gets the element.<br />
+var image = AliHub.Graph.ImageContainer.generateImage(info);
+</code>
+<p>
+    In view template, it can be rendered by image() function of root.
+    Suppose property <code>icon</code> is an image in view model.
+</p>
+<code>
+    &lt;div data-bind=&quot;image: model().icon&quot;&gt;&lt;/div&gt;
+</code>
+<p></p>

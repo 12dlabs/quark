@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Folder</title>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="g-1" transform="translate(-1086.000000, -332.000000)">
+            <g id="folder-2-copy-4" transform="translate(1086.000000, 332.000000)">
+                <g id="folder-2">
+                    <g id="Page-2">
+                        <g id="Icon-Set">
+                            <path d="M15,5 L1,5 L1,2 C1,1.448 1.448,1 2,1 L5,1 C5.552,1 6,1.448 6,2 L6,3 L14,3 C14.552,3 15,3.448 15,4 L15,5 L15,5 L15,5 Z M15,14 C15,14.552 14.552,15 14,15 L2,15 C1.448,15 1,14.552 1,14 L1,6 L15,6 L15,14 L15,14 L15,14 Z M14,2 L7,2 C7,0.8955 6.1045,0 5,0 L2,0 C0.8955,0 0,0.8955 0,2 L0,14 C0,15.1045 0.8955,16 2,16 L14,16 C15.1045,16 16,15.1045 16,14 L16,4 C16,2.8955 15.1045,2 14,2 L14,2 L14,2 Z" id="folder-2" fill="#0075DA"></path>
+                            <path d="M15,5 L1,5 L1,2 C1,1.448 1.448,1 2,1 L5,1 C5.552,1 6,1.448 6,2 L6,3 L14,3 C14.552,3 15,3.448 15,4 L15,5 L15,5 L15,5 Z" id="folder-2-path" fill="#B3D6F4"></path>
+                            <path d="M15,14 C15,14.552 14.552,15 14,15 L2,15 C1.448,15 1,14.552 1,14 L1,6 L15,6 L15,14 L15,14 L15,14 Z" id="folder-2-path" fill="#E3F2FB"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

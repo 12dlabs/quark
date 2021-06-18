@@ -1,0 +1,85 @@
+<h1>
+    Localization
+</h1>
+<p>
+    You can define different strings for different market.
+    For example, a welcome page show <em>Hello</em> for English users and <em>你好</em> for simplified Chinese.
+</p>
+<p>
+    It is very easy to do so.
+    You need create a template container firstly.
+    Then define a string set for specific markets to register.
+    To use them, pass the string keys and Quark will help you to select the string from the target market.
+</p>
+<h2>
+    Create a template container
+</h2>
+<p>
+    Template container is used to store the information including local strings and others.
+    You can create it as following sample. Need a unique module name to identify.
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">var</span> template = AliHub.Res.templates(<span class="ali-x-code-string">&quot;A_Module_Name&quot;</span>, <span class="ali-x-code-keyword">true</span>);
+</div>
+<p>
+    You can set the template as singleton for all the web application.
+</p>
+<h2>
+    Define local strings and register
+</h2>
+<p>
+    Create an object to fill the strings with keys.
+    The key is to map a local string.
+    Following is a sample.
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-comment">// Create an object to fill the strings.</span><br />
+    <span class="ali-x-code-comment">// A property is for a local string.</span><br />
+    <span class="ali-x-code-comment">// The property key is the mapping key.</span><br />
+    <span class="ali-x-code-comment">// The value is the local string.</span><br />
+    <span class="ali-x-code-keyword">var</span> res = {<br />
+    &nbsp; &nbsp; hello: <span class="ali-x-code-string">&quot;Hello&quot;</span>,<br />
+    &nbsp; &nbsp; bye: <span class="ali-x-code-string">&quot;Bye&quot;</span>,<br />
+    &nbsp; &nbsp; name: <span class="ali-x-code-string">&quot;Name&quot;</span><br />
+    };<br /><br />
+    <span class="ali-x-code-comment">// Register the string set to the template container as one or more markets.</span><br />
+    template.strings.reg(<span class="ali-x-code-string">&quot;en&quot;</span>, res);<br /><br />
+    <span class="ali-x-code-comment">// And for other market.</span><br />
+    res = {<br />
+    &nbsp; &nbsp; hello: <span class="ali-x-code-string">&quot;你好&quot;</span>,<br />
+    &nbsp; &nbsp; bye: <span class="ali-x-code-string">&quot;再见&quot;</span>,<br />
+    &nbsp; &nbsp; name: <span class="ali-x-code-string">&quot;名称&quot;</span><br />
+    };<br />
+    template.strings.reg(<span class="ali-x-code-string">&quot;zh-Hans&quot;</span>, res);<br />
+    template.strings.reg(<span class="ali-x-code-string">&quot;zh-CN&quot;</span>, res);<br />
+    template.strings.reg(<span class="ali-x-code-string">&quot;zh-SG&quot;</span>, res);
+</div>
+<h2>
+    Usages
+</h2>
+<p>
+    You can use the local string by following sample.
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">var</span> helloString = template.localString(<span class="ali-x-code-string">&quot;hello&quot;</span>);
+</div>
+<p>
+    It will return <em>Hello</em> for English users and <em>你好</em> for simplified Chinese users.
+</p>
+<p>
+    To batch copy a number of properties (especially for Angular/AngularJs developers),
+    you can code as following sample which is to copy 2 of local strings to an object as its properties.
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">var</span> strings = {};<br />
+    templates.strings.copyFields(strings, [<span class="ali-x-code-string">&quot;hello&quot;</span>, <span class="ali-x-code-string">&quot;bye&quot;</span>]);
+</div>
+<h2>
+    See more
+</h2>
+<p>
+    Please see member properties and methods of class <code data-mine="word">AliHub.Res.Template</code> and class <code data-mine="word">AliHub.Res.Strings</code> for details.
+</p>
+<p>
+    Or go to <a href="http://12d.alibaba.net/p/home/?id=localization">12D Labs</a> for demo.
+</p>

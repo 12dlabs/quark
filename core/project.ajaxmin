@@ -1,0 +1,8 @@
+<root>
+  <output path="build\scripts\index.min.js" >
+    <input path="src\scripts\index.js"/>
+  </output>
+  <output path="build\scripts\kissyLoader.min.js" >
+    <input path="src\scripts\kissyLoader.js"/>
+  </output>
+</root>

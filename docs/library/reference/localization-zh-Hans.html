@@ -1,0 +1,77 @@
+<h1>
+    本地化
+</h1>
+<p>
+    你可以为不同语言和地区定义不同的现实内容，以更好的支持本地化。
+    例如，如果需要设计一个欢迎画面，对于简体中文用户，可能需要显示“你好”，而英文用户则应当显示“Hello”。
+</p>
+<p>
+    Quark 提供一种非常简捷高效的方式来实现这一点。你所需要做的事情就是，为当前站点创建一个模板，然后填充各语言包，最后才需要的地方使用它。
+</p>
+<h2>
+    创建模板
+</h2>
+<p>
+    模板用于存储本地化信息和其它模板内容。创建过程非常简单，只需如下一行代码。在这里，你需要传入一个唯一标识，做为模板的 ID，以和其它模板区分开来。
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">var</span> template = AliHub.Res.templates(<span class="ali-x-code-string">&quot;A_Module_Name&quot;</span>, <span class="ali-x-code-keyword">true</span>);
+</div>
+<p>
+    你可以将其设计为单例模式，以便在整个 Web App 中随时可以调用它。
+</p>
+<h2>
+    语言包
+</h2>
+<p>
+    创建一个对象，以添加属性的方式，在里面填充某一中语言的所有文本。
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-comment">// 创建一个对象，里面每个属性对应一段本地化文本。</span><br />
+    <span class="ali-x-code-comment">// 属性名会在之后做为索引，而属性值则是本地化文本本身.</span><br />
+    <span class="ali-x-code-keyword">var</span> res = {<br />
+    &nbsp; &nbsp; hello: <span class="ali-x-code-string">&quot;你好&quot;</span>,<br />
+    &nbsp; &nbsp; bye: <span class="ali-x-code-string">&quot;再见&quot;</span>,<br />
+    &nbsp; &nbsp; name: <span class="ali-x-code-string">&quot;名称&quot;</span><br />
+    };<br /><br />
+    <span class="ali-x-code-comment">// 将这个对象注册成为某一个或多个市场的语言包。</span><br />
+    template.strings.reg(<span class="ali-x-code-string">&quot;zh-Hans&quot;</span>, res);<br />
+    template.strings.reg(<span class="ali-x-code-string">&quot;zh-CN&quot;</span>, res);<br />
+    template.strings.reg(<span class="ali-x-code-string">&quot;zh-SG&quot;</span>, res);<br /><br />
+    <span class="ali-x-code-comment">// 以同样方式注册其它语言包。</span><br />
+    res = {<br />
+    &nbsp; &nbsp; hello: <span class="ali-x-code-string">&quot;Hello&quot;</span>,<br />
+    &nbsp; &nbsp; bye: <span class="ali-x-code-string">&quot;Bye&quot;</span>,<br />
+    &nbsp; &nbsp; name: <span class="ali-x-code-string">&quot;Name&quot;</span><br />
+    };<br />
+    template.strings.reg(<span class="ali-x-code-string">&quot;en&quot;</span>, res);<br /><br />
+</div>
+<h2>
+    使用
+</h2>
+<p>
+    现在，你可以非常简单的开始使用。如下方代码所示。
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">var</span> helloString = template.localString(<span class="ali-x-code-string">&quot;hello&quot;</span>);
+</div>
+<p>
+    对于简体中文用户，“你好”会被返回；而英文用户则会返回“Hello”。
+</p>
+<p>
+    不过有的时候，你可能需要批量复制出一批本地化文本，例如，当使用 Angular/AngularJs 的时候，你可能需要在 $scope 中的某个属性设置好所有所需要的显示内容。
+    下方示例将复制出已注册的本地语言包中的两段文本，以属性的方式，赋值给某个给定对象。
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">var</span> strings = {};<br />
+    templates.strings.copyFields(strings, [<span class="ali-x-code-string">&quot;hello&quot;</span>, <span class="ali-x-code-string">&quot;bye&quot;</span>]);
+</div>
+<h2>
+    更多
+</h2>
+<p>
+    请查看 <code data-mine="word">AliHub.Res.Template</code> 类和 <code data-mine="word">AliHub.Res.Strings</code> 类中的成员方法和属性，以了解更多细节。
+</p>
+<p>
+    或者进入<a href="http://12d.alibaba.net/p/home/?id=localization">第12维实验室</a>查看在线示例。
+</p>

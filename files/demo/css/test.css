@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+body {
+}
+
+.ali-demo-files-upload {
+    padding: 10px;
+}
+.ali-demo-files-upload > div:first-child {
+    padding: 0 0 20px 0;
+}
+.ali-demo-files-upload > div:first-child > button {
+    color: #666;
+    font-size: 16px;
+    background: #EEE;
+    padding: 20px 60px;
+    margin: 0;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.ali-demo-files-upload > div:first-child > button:hover {
+    color: #333;
+    background: white;
+    border-color: #999;
+}
+.ali-demo-files-upload > ul {
+    color: #333;
+    padding: 0 0 10px 0;
+    margin: 0;
+    list-style: none;
+}
+.ali-demo-files-upload > ul > li {
+    padding: 0 0 10px 0;
+    margin: 0;
+    list-style: none;
+}
+.ali-demo-files-upload > ul > li:first-child {
+    font-size: 16px;
+}
+.ali-demo-files-upload > ul > li > strong:first-child {
+    font-weight: normal;
+}
+.ali-demo-files-upload > ul > li > span {
+    color: #999;
+}
+.ali-demo-files-upload > ul > li.ali-x-state-pending > em {
+    color: blue;
+    font-style: normal;
+}
+.ali-demo-files-upload > ul > li.ali-x-state-success > em {
+    color: green;
+    font-style: normal;
+}
+.ali-demo-files-upload > ul > li.ali-x-state-error > em {
+    color: brown;
+    font-style: normal;
+}
+
+.ali-demo-files-explorer {
+    padding: 0;
+}
+div.ali-controls-files-tree > ul.ali-files-container-tree {
+    width: 199px;
+    border-right: 1px solid #DDD;
+    float: left;
+}
+div.ali-controls-files-tree > ul.ali-files-container-files {
+    margin-left: 200px;
+}

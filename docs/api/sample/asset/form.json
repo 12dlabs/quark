@@ -1,0 +1,82 @@
+﻿{
+  "success": true,
+  "result": {
+    "form": [
+      {
+        "id": "name",
+        "type": "text",
+        "name": "Name"
+      },
+      {
+        "id": "gender",
+        "type": "select",
+        "name": "Gender",
+        "options": [
+          { "value": "Male" },
+          { "value": "Female" },
+          { "value": "Intersex" },
+          { "value": "None" },
+          { "value": "Other" }
+        ]
+      },
+      {
+        "id": "nation",
+        "type": "text",
+        "name": "Nationality"
+      },
+      {
+        "id": "bio",
+        "type": "text",
+        "name": "Bio"
+      },
+      {
+        "id": "avatar",
+        "type": "image",
+        "name": "Avatar"
+      },
+      {
+        "id": "images",
+        "type": "files",
+        "name": "Images"
+      },
+      {
+        "id": "attachment1",
+        "type": "file",
+        "name": "Attachment A"
+      },
+      {
+        "id": "attachment2",
+        "type": "file",
+        "name": "Attachment B"
+      }
+    ],
+    "types": [
+      {
+        "id": "FT00010",
+        "name": "Apple"
+      },
+      {
+        "id": "FT00020",
+        "name": "Bottega Veneta"
+      },
+      {
+        "id": "FT00030",
+        "name": "Coach"
+      },
+      {
+        "id": "FT00070",
+        "name": "Giorgio Armani"
+      },
+      {
+        "id": "FT00080",
+        "name": "Hermes"
+      }
+    ],
+    "users": [
+      {
+        "id": "001",
+        "name": "Kingcean Tuan"
+      }
+    ]
+  }
+}

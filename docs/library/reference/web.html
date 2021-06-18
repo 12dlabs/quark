@@ -1,0 +1,106 @@
+﻿<h1>Advanced data resolver</h1>
+<p>
+    You can use advanced data resolver to load data from web services with following main methods.
+</p>
+<ul>
+    <li>GET</li>
+    <li>POST</li>
+    <li>JSONP</li>
+    <li>In memory</li>
+</ul>
+<p>
+    It supports following functionalities for using.
+</p>
+<ul>
+    <li>Data model convertion.</li>
+    <li>Mock for development test and technical preview.</li>
+    <li>Centralized management and reference.</li>
+    <li>Optional empty checker.</li>
+</ul>
+<h1>
+    AliHub.Web.DataPackageResolver
+</h1>
+<code>
+    namespace AliHub.Common {<br />
+    &nbsp;&nbsp;&nbsp;
+    export class DataPackageResolver&lt;T&gt; extends BaseDataPackageResolver&lt;T&gt; {<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    constructor(<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    info?: WebResolverInfoContract&lt;T&gt;,<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    subject?: string,<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    key?: string);<br />
+&nbsp;&nbsp;&nbsp; }<br />
+    }
+</code>
+<p>
+    This is the data resolver to load data from web services by GET or JSONP.
+    For the one by POST, please use <code>PostDataPackageResolver&lt;TRequest, TResponse&gt;</code>, see its comment documentation.
+</p>
+<ul>
+    <li>
+        <code>info</code><br />
+        The options and other settings of web resolver. See comment documentation of <code>WebResolverInfoContract&lt;T&gt;</code>.
+    </li>
+    <li>
+        <code>subject</code><br />
+        The subject of module to bind.
+    </li>
+    <li>
+        <code>key</code><br />
+        The key to register.
+    </li>
+</ul>
+<h2>
+    Methods and properties
+</h2>
+<p>
+    See comment documentation of <code data-mine="word">AliHub.Common.DataPackageResolver</code> class and <code data-mine="word">AliHub.Common.resolve</code> function for details.
+</p>
+<h2>
+    Samples
+</h2>
+<code>
+    // Creates a data resolver for GET or JSONP.<br />
+// For this example, we will not set additional options here.<br />
+// Subject sample is the project name.<br />
+// Key list is the identifier of the data resolver, it should be unique in current project.<br />
+var resolver = new AliHub.Web.DataPackageResolver(null, &quot;sample&quot;, &quot;asset&quot;);<br />
+<br />
+// To configure the path to the data resolver.<br />
+// Sets the URL template to its info.templates property.<br />
+resolver.info.template = &quot;http://nine.alibaba.net/api/sample/asset/list.json&quot;;<br />
+<br />
+// If the data resolved need be modified, such as to format raw data and fill something computed,<br />
+// an optional convertor can be applied.<br />
+// Sets a function to its info.dataConvertor property.<br />
+// The function has a parameter that is the raw data and need return the new data converted.<br />
+resolver.info.dataConvertor = function (model) {<br />
+&nbsp;&nbsp;&nbsp; model.converted = true;&nbsp;&nbsp;&nbsp; // Do something changed of model here for your business.<br />
+&nbsp;&nbsp;&nbsp; return model;<br />
+};<br />
+<br />
+// Uses the resolver to resolve data.<br />
+resolver.resolve().done(function (r) {<br />
+&nbsp;&nbsp;&nbsp; var model = r.result;&nbsp;&nbsp;&nbsp; // model is the data resolved and converted.<br />
+&nbsp;&nbsp;&nbsp; if (!model.converted) console.debug(&quot;Failed to convert.&quot;, model);<br />
+});<br /><br />
+    // It also work well by using subject and key.<br />
+AliHub.Web.resolve(&quot;sample&quot;, &quot;asset&quot;).done(function (r) {<br />
+&nbsp;&nbsp;&nbsp; var model = r.result;&nbsp;&nbsp;&nbsp; // model is the data resolved and converted.<br />
+&nbsp;&nbsp;&nbsp; if (!model.converted) console.debug(&quot;Failed to convert.&quot;, model);<br />
+});</code>
+<p>
+    Data resolver can be used directly in some controls to fill data, e.g. <code>AliHub.Collection.ListControl&lt;T&gt;</code>.
+</p>
+<code>
+// Suppose DIV element with identifier demo_container existed (&lt;div id=&quot;demo_container&quot;&gt;&lt;/div&gt;).<br />
+var list = new AliHub.Collection.ListControl(&quot;demo_container&quot;);<br />
+control.pushResourceFromWeb(&quot;sample&quot;, &quot;list&quot;, &quot;list&quot;);
+</code>
+<p>
+    For details, see related documentation in current website or their comments.
+</p>
+<p></p>

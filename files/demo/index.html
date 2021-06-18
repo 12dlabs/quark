@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html class="ali-page">
+<head>
+    <meta charset="utf-8" />
+    <title>Form and uploader</title>
+    <script src="https://g.alicdn.com/hi/modulex/5.0.0/seed-debug.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://g.alicdn.com/tb/tracker/1.0.16/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://g.alicdn.com/hi/quark/1.7.936/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/config.js" type="text/javascript" charset="utf-8"></script>
+    <link href="css/test.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="page_demo_container" class="ali-demo-files-upload">
+        <div id="page_demo_container_actions" class="ali-x-actions">
+            <button id="page_demo_container_upload">Add file</button>
+            <button id="page_demo_container_submit">Post demo data</button>
+        </div>
+        <ul id="page_demo_container_result">
+            
+        </ul>
+    </div>
+    <script type="text/javascript">
+        modulex.use("files/js/common", function (files) {
+            var qEle = AliHub.Elements;
+
+            // Bind an event handler to a buton to demo file upload.
+            qEle.listen("page_demo_container_upload", "click", function (ev) {
+
+                // Initialize an instance of the file upload client.
+                var client = files.upload("../wwwroot/pages/completed.html?demo=file&callback=?");
+
+                // Show the file selection dialog and register the next handler.
+                client.select().then(function (rf) {
+
+                    // Demo only. Present pending view.
+                    var listEle = qEle.getById("page_demo_container_result");
+                    var itemEle = document.createElement("li");
+                    itemEle.className = "ali-x-state-pending";
+                    itemEle.innerHTML = "<strong>" + rf.name + "</strong><br /><em>Uploading...</em>";
+                    listEle.insertBefore(itemEle, listEle.firstChild);
+
+                    // Send file to server and register the next handler.
+                    client.upload().then(function (ri) {
+
+                        // Demo only. Update result view.
+                        itemEle.className = "ali-x-state-success";
+                        itemEle.innerHTML = "<strong>" + rf.name + "</strong><br /><em>Done! </em><span>(" + ri.result + ")</span>";
+                    }, function (ri) {
+
+                        // Demo only. Error view.
+                        itemEle.className = "ali-x-state-error";
+                        itemEle.innerHTML = "<strong>" + rf.name + "</strong><br /><em>Failed. </em>";
+                        console.error("Failed to upload.", ri);
+                    });
+                });
+            });
+
+            // Bind an event handler to a button to demo hidden form to send data.
+            qEle.listen("page_demo_container_submit", "click", function (ev) {
+
+                // Demo only. Present pending view.
+                var listEle = qEle.getById("page_demo_container_result");
+                var itemEle = document.createElement("li");
+                itemEle.className = "ali-x-state-pending";
+                itemEle.innerHTML = "<em>Loading...</em>";
+                listEle.insertBefore(itemEle, listEle.firstChild);
+
+                // Initialize an instance of the hidden form for data sending.
+                // Pass the action URL with a query parameter "callback" equaling question mark.
+                var form = qEle.hiddenForm("../wwwroot/pages/completed.html?demo=form&callback=?");
+
+                // Add some fields to the form.
+                // Each of the field of the object will be the form parameter.
+                form.addSet({
+                    a: "Good morning!",
+                    b: 12,
+                    c: true,
+                    d: new Date(),
+                    e: {
+                        surname: "Tuan",
+                        givenName: "Kingcean"
+                    },
+                    f: ["string", 0, "string"],
+                    g: null
+                });
+
+                // Add a field as JSON format.
+                form.jsonField("h", { start: "Hey!", end: "Bye!" });
+
+                // Add a field as string.
+                form.field("i", "7");
+
+                // Remove some fields.
+                form.remove("a", "b");
+
+                // Submit and register an event handler which occurs after done.
+                form.submit().then(function (r) {
+
+                    // Demo only. Update result view.
+                    itemEle.className = "ali-x-state-success";
+                    itemEle.innerHTML = "<strong>" + r.result.id + " </strong><em>(Done)</em>";
+                }, function (r) {
+
+                    // Demo only. Error view.
+                    itemEle.className = "ali-x-state-error";
+                    itemEle.innerHTML = "<em>Failed</em>";
+                    console.error("Failed to submit.", r);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

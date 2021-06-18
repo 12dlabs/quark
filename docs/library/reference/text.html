@@ -1,0 +1,186 @@
+﻿<h1>
+    Text utilities
+</h1>
+<p>
+    There are lots of utilities for text.
+</p>
+<h1>
+    AliHub.Common.Text
+</h1>
+<p>
+    This is a powerful tools to provide lots of functions for text.
+</p>
+<h2>
+    Functions
+</h2>
+<h3>
+    Format
+</h3>
+<p>
+    You can format a string from a template and data by following function.
+</p>
+<code>
+    /**<br />
+    &nbsp; * Formats a string.<br />
+    &nbsp; * @param template  The source string.<br />
+    &nbsp; * @param parameters  The object or array of parameters.<br />
+    &nbsp; * @param urlEncode  true if for URI components; otherwise, false.<br />
+    &nbsp; * @param preBag  A property bag for preparing.<br />
+    &nbsp; */<br />
+    public static format(<br />
+    &nbsp; &nbsp; template: string,<br />
+    &nbsp; &nbsp; parameters?: any,<br />
+    &nbsp; &nbsp; uriComponent = false,<br />
+    &nbsp; &nbsp; preBag: string[] | Func&lt;string[]&gt; = null<br />
+    ): string {}
+</code>
+<p>
+    Following is a sample to use.
+</p>
+<code>
+    var qText = AliHub.Common.Text;<br />
+    <br />
+    // Format a normal string.<br />
+    qText.format(<br />
+    &nbsp; &nbsp; "Hi {name}, what's your {property}?",<br />
+    &nbsp; &nbsp; { name: "Kingcean", property: "name" }<br />
+    );<br /><br />
+    // Format a URL.<br />
+    qText.format(<br />
+    &nbsp; &nbsp; "/api/sample/assets/list.html?q={q}&page={page}&size={size}",<br />
+    &nbsp; &nbsp; { q: "Hello Kitty", page: 0, size: 20 },<br />
+    &nbsp; &nbsp; true<br />
+    );<br /><br />
+    // Format something with a definition<br />
+    // to avoid some properties are not in the paramters.<br />
+    qText.format(<br />
+    &nbsp; &nbsp; "{hours} {minutes} {seconds}",<br />
+    &nbsp; &nbsp; { hours: 4, minutes: 1 },<br />
+    &nbsp; &nbsp; false,<br />
+    &nbsp; &nbsp; ["hours", "minutes", "seconds"]<br />
+    );
+</code>
+<h3>
+    Trim
+</h3>
+<p>
+    Left trim, right trim or both trim a given string by following method.
+</p>
+<code>
+    public static trim(str: string): string {}<br />
+    public static leftTrim(str: string): string {}<br />
+    public static rightTrim(str: string): string {}<br />
+</code>
+<p>
+    Following is the sample.
+</p>
+<code>
+    var qText = AliHub.Common.Text;<br />
+    var str = " Alibaba ";
+    <br />
+    var t1str = qText.trim(str); // "Alibaba"<br />
+    var t2str = qText.leftTrim(str); // "Alibaba "<br />
+    var t3str = qText.rightTrim(str); // " Alibaba"
+</code>
+<h3>
+    Find
+</h3>
+<p>
+    You can get the position of the specific strings in a given string.
+</p>
+<code>
+    /**<br />
+    &nbsp; * Returns the position of the first occurrence of a substring.<br />
+    &nbsp; * @param searchString The substring to search for in the string.<br />
+    &nbsp; * @param position The index at which to begin searching the String object.<br />
+    &nbsp; &nbsp; If omitted, search starts at the beginning of the string.<br />
+    &nbsp; * @param last true if search the last one of position items;<br />
+    &nbsp; &nbsp; otherwise, false.<br />
+    &nbsp; * @param negative true if search from last; otherwise, false.<br />
+    &nbsp; */<br />
+    public static indexOf(<br />
+    &nbsp; &nbsp; str: string,<br />
+    &nbsp; &nbsp; position: string | number | (string | number)[],<br />
+    &nbsp; &nbsp; last = false,<br />
+    &nbsp; &nbsp; negative = false<br />
+    ): TextPositionContract {}
+</code>
+<p>
+    Following is the sample to use.
+</p>
+<code>
+    var qText = AliHub.Common.Text;<br />
+    var str = "abcdefgXhijklmnXopqXrst";
+    <br />
+    // Find first of "bc", position 5, "X" in a given string.<br />
+    // Result: { q: "bc", start: 1, end: 2 }<br />
+    var info = qText.indexOf(str, ["bc", 5, "X"]);<br />
+    <br />
+    // Find last of "bc", position 5, "X" in a given string.<br />
+    // Result: { q: "X", start: 7, end: 7 }<br />
+    var info = qText.indexOf(str, ["bc", 5, "X"], true);<br />
+    <br />
+    // Get index of first of "bc", position 5, "X" in a given string,<br />
+    // by searching from last to end.<br />
+    // Result: { q: "b", start: 1, end: 2 }<br />
+    var info = qText.indexOf(str, ["bc", 5, "X"], false, true);<br />
+    <br />
+    // Get index of last of "bc", position 5, "X" in a given string,<br />
+    // by searching from last to end.<br />
+    // Result: { q: "X", start: 17, end: 17 }<br />
+    var info = qText.indexOf(str, ["bc", 5, "X"], true, true);
+</code>
+<h3>
+    Base64
+</h3>
+<p>
+    You can encode or decode base64.
+</p>
+<code>
+    // Encode a string as Base64.<br />
+    public static base64encode(str: string): string {}<br />
+    <br />
+    // Decode a string by Base64.<br />
+    public static base64decode(str: string): string {}
+</code>
+<p>
+    Following is the sample for usage.
+</p>
+<code>
+    var qText = AliHub.Common.Text;<br />
+    var str = "Nice to meet you!";
+    <br />
+    // Get Base64 from a given string.<br />
+    var base64str = qText.base64encode(str);<br />
+    <br />
+    // Decode by Base64 to compare original one.<br />
+    var isSame = qText.base64decode(str) === str;
+</code>
+<h3>
+    HTML and JSON
+</h3>
+<p>
+    You can get the content string from an HTML or encode a string to HTML.
+</p>
+<code>
+    // Gets the content string from an HTML.<br />
+    public static parseHTML(<br />
+    &nbsp; &nbsp; html: string,<br />
+    &nbsp; &nbsp; emptyForNull = false<br />
+    ): string {}<br />
+    <br />
+    // Encodes a string to HTML.<br />
+    public static toHTML(<br />
+    &nbsp; &nbsp; text: string<br />
+    ): string {}
+</code>
+<p>
+    You can also parse an object to a JSON formatted string even if current browser does not support <code data-mine="word">JSON.stringify</code> function.
+</p>
+<code>
+    public static serialize(obj: any): string {}
+</code>
+<p>
+    For details, see comment documentation of <code data-mine="word">AliHub.Common.Text</code> class.
+</p>
+<p></p>

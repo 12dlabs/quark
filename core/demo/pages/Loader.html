@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-hans" class="ali-page ali-page-scroll-n">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=2.0" />
+    <title>Loader - Quark</title>
+    <script src="https://g.alicdn.com/hi/modulex/5.0.0/seed-debug.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body class="ali-page-l-portal">
+    <div id="ali_container_test"></div>
+    <script type="text/javascript">
+        modulex.config({
+            packages: {
+                "quark-hi": {
+                    path: "https://g.alicdn.com/hi/quark/1.8.1000/index"
+                }
+            }
+        });
+        modulex.use('quark-hi', function (loader) {
+            console.debug("Quark", AliHub);
+            var container = AliHub.Elements.getById("ali_container_test");
+            container.innerHTML = "Greetings from Quark.";
+        });
+    </script>
+</body>
+</html>

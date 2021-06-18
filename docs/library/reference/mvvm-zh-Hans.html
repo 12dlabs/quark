@@ -1,0 +1,148 @@
+﻿<h1>
+    增强型 MVVM
+</h1>
+<p>
+    Quark 支持 Model - View - View Model 开发模型，并提供更多额外的增强功能。你可以非常方便地创建基于 MVVM 的 Control 来绑定数据和模板。
+    <code data-mine="word"><span class="ali-x-code-namespace">AliHub.Common</span>.<span>BindingControl</span>&lt;T&gt;</code> 是其中一个内置的最基础的 MVVM Control。
+</p>
+<h2>
+    观察者模式
+</h2>
+<p>
+    你可以调用 <code data-mine="word"><span class="ali-x-code-namespace">AliHub.Common</span>.<span>listenedObj</span>&lt;T&gt;</code> 方法来获取一个能够被其它地方监听的数据对象管理实例。
+    其将返回符合 <code data-mine="word"><span class="ali-x-code-namespace">AliHub.Common</span>.<span>ListenedObjectContract</span>&lt;T&gt;</code> 接口的对象，详见该接口的代码注释文档。
+</p>
+<h2>
+    视图模板
+</h2>
+<p>
+    你可以使用不同的模板引起，例如 AngularJS 和 Knockout，而做到这一点，在引入了该模板引擎库后，只需在模板前面加上一行注释，表明当前模板所用的模板引擎名称即可，下方是内置支持的模板引擎。
+</p>
+<ul>
+    <li>
+        <span>Knockout</span><br />
+        <code data-mine="word"><span class="ali-x-code-comment">&lt;!-- template-engine: knockout --&gt;</span></code>
+    </li>
+    <li>
+        <span>AngularJS</span><br />
+        <code data-mine="word"><span class="ali-x-code-comment">&lt;!-- template-engine: angularjs --&gt;</span></code>
+    </li>
+    <li>
+        <span>Vue.js</span><br />
+        <code data-mine="word"><span class="ali-x-code-comment">&lt;!-- template-engine: vuejs --&gt;</span></code>
+    </li>
+</ul>
+<p>
+    Knockout 被设置为默认模板引擎，当通过 AMD、CommonJS 或 KISSY/Modulex 加载 Quark 时，该库也会被自动引入。
+</p>
+<p>
+    模板可以通过多种方式获取。
+</p>
+<ul>
+    <li>
+        ajax<br />获取自 GET 或 JSONP。
+    </li>
+    <li>
+        static<br />获取自固定的 HTML 字符串。
+    </li>
+    <li>
+        inner<br />获取自所绑定的 DOM 里面的 HTML 内容。
+    </li>
+    <li>
+        element<br />获取自某个 DOM 里面的 HTML 内容。
+    </li>
+</ul>
+<section data-code-control="namespace: 'AliHub.Common', name: 'BindingControl', tagName: 'quark-binding', options: 'BindingControlOptionsContract', hideOptions: true, optionsSample: {
+            viewModel: { name: 'Kingcean' }
+         }">
+    <div data-key="intro">
+        Binding Control 是一个最基础的 MVVM Control，提供视图模板、视图数据模型、数据转换器、视图扩展、辅助信息等的综合绑定与管理。
+    </div>
+    <div data-key="templstrings" style="display: none;">
+        &lt;<span class="ali-x-code-tagname">part</span> <span class="ali-x-code-attr">key</span>=<span class="ali-x-code-string">&quot;content&quot;</span>&gt;<br />
+        &nbsp; &nbsp; <span class="ali-x-code-comment">&lt;!-- template-engine: angularjs --&gt;</span><br />
+        &nbsp; &nbsp; &lt;<span class="ali-x-code-tagname">div</span>&gt;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &lt;<span class="ali-x-code-tagname">span</span>&gt;<span>{</span><span>{</span><span class="ali-x-code-bind">model.name</span><span>}</span><span>}</span>&lt;/<span class="ali-x-code-tagname">span</span>&gt;<br />
+        &nbsp; &nbsp; &lt;/<span class="ali-x-code-tagname">div</span>&gt;<br />
+        &lt;/<span class="ali-x-code-tagname">part</span>&gt;
+    </div>
+    <p key="loading">
+        <em>请稍后，更多内容正在加载中……</em>
+    </p>
+</section>
+<h2>
+    设置选项信息
+</h2>
+<code>
+    // Binding Control 的设置选项。<br />
+    // namespace: AliHub.Common.<br />
+    interface BindingControlOptionsContract&lt;T&gt; extends VisualControlOptionsContract&lt;BindingControl&lt;T&gt;&gt; {<br />
+    <br />
+    &nbsp; &nbsp; // 模板内容来源的类型。<br />
+    &nbsp; &nbsp; templateType?: string;<br />
+    <br />
+    &nbsp; &nbsp; // 模板内容来源的值。<br />
+    &nbsp; &nbsp; template?: string;<br />
+    <br />
+    &nbsp; &nbsp; // 数据转化器。<br />
+    &nbsp; &nbsp; convertor?: Func1&lt;T, any&gt;;<br />
+    <br />
+    &nbsp; &nbsp; // 模板数据。<br />
+    &nbsp; &nbsp; viewModel?: T;<br />
+    <br />
+    &nbsp; &nbsp; // 模板扩展器。<br />
+    &nbsp; &nbsp; extender?: BindingControlExtender&lt;T&gt;[] | BindingControlExtender&lt;T&gt;;<br />
+    <br />
+    &nbsp; &nbsp; // 绑定其它 Binding Control 的数据。<br />
+    &nbsp; &nbsp; bindControl?: BindingControl&lt;T&gt;;<br />
+    }&nbsp;
+</code>
+<h2>
+    示例
+</h2>
+<p>
+    若需渲染一个 Binding Control，你需要事先准备好模板和数据。
+    假设下方是我们的数据。
+</p>
+<code>
+    var data = {<br />
+    &nbsp; &nbsp; &quot;name&quot;: &quot;Fruit&quot;,<br />
+    &nbsp; &nbsp; &quot;list&quot;: [<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &quot;Apple&quot;,<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &quot;Banana&quot;,<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &quot;Cherry&quot;<br />
+    &nbsp; &nbsp; ]<br />
+    };
+</code>
+<p>
+    我们希望渲染成为一组 DOM，里面包含一个段落，显示<code>data.name</code> 的值，还有一个列表，显示 <code>data.list</code> 中的值。为此，我们实现以下模板。
+</p>
+<code>
+    &lt;div&gt;<br />
+    &nbsp; &nbsp; &lt;p&gt;<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;span data-bind=&quot;text: model().name&quot;&gt;&lt;/span&gt;<br />
+    &nbsp; &nbsp; &lt;/p&gt;<br />
+    &nbsp; &nbsp; &lt;ul data-bind=&quot;foreach: model().list&quot;&gt;<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li data-bind=&quot;text: $data&quot;&gt;&lt;/li&gt;<br />
+    &nbsp; &nbsp; &lt;/ul&gt;<br />
+    &lt;/div&gt;
+</code>
+<p>
+    在这里，<code>model()</code> 即会返回数据对象。
+    假设我们将模板内容存入字符串 <code>templ</code> 中，并且页面中有一个 ID 为 <code>demo_container</code> 的 <code>DIV</code> 元素 <code  data-mine="word">&lt;div id="demo_container"&gt;&lt;/div&gt;</code> 将被用于绑定，
+    我们将只需实现以下代码即可。
+</p>
+<code>
+    // 创建一个 Binding Control。<br />
+    var control = AliHub.Common.bindingControl(<br />
+    &nbsp; &nbsp; &quot;demo_container&quot;,&nbsp; &nbsp; // 绑定的 DOM 的 ID。<br />
+    &nbsp; &nbsp; {&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; // 设置选项。<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &quot;viewModel&quot;: data,<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &quot;template&quot;: templ<br />
+    &nbsp; &nbsp; }<br />
+    );
+</code>
+<p>
+    上述代码中的变量 <code>control</code> 即为 <code>BindingControl&lt;T&gt;</code> 类的一个实例，可用于后续访问操作。
+</p>
+<p></p>

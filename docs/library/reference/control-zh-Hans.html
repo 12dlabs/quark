@@ -1,0 +1,128 @@
+﻿<h1>
+    什么是 Control 呢？
+</h1>
+<p>
+    在这里，Control 是构造网页界面及交互的基本组件，由数个 DOM 或子 Control 构成，并提供对应的业务操作功能和生存周期管理。
+</p>
+<p>
+    初始化一个 Control 实例需要绑定一个 DOM 节点，然后该 Control 实例会自动管理和渲染该 DOM 节点。
+    初始化的时候，可以指定一个设置选项以快速定制该 Control 实例的一些初始的状态和行为。
+    为了方便，你可以将该值或生成该值得方法放在目标 DOM 元素的 <code data-mine="word">control-options</code> 属性，Quark 提供一项快速功能以直接读取该值，并将结果做为设置选项自动执行。
+    另外，你还可以在 DOM 中设置子模板，子模版会自动适配到合适的位置，例如，在列表中，元素子模版将自动匹配为各项的模板，而分组标题子模版则会匹配到分组标题栏。
+    有些 Control 启用了 Web Component 支持，因此你可以通过直接在 HTML 中插入该 DOM 标签来自动创建该 Control 实例，Quark 提供方法从 HTML 中获取任意 Control 实例。
+</p>
+<p>
+    几乎所有的 Control 都继承自 <code>AliHub.Common.VisualControl</code> 类。
+    但对于不同 Control，其初始化该实例的方法不一定完全一致。
+    不过对于绝大多数来说，你可以直接使用 new 关键词去创建一个该实例，并传入需要绑定的 DOM 元素或其 ID。
+    之后，你可以调用 <code data-mine="word">loadOptions(option)</code> 成员方法，以加载设置选项。下面是 <code data-mine="word">option</code> 的参数介绍。
+</p>
+<ul>
+    <li>
+        <code>options</code><br />
+        设置选项，或者返回设置选项的方法，请参考 <code>VisualControlOptionsContract</code> 的注释文档。<br />
+        或者是布尔值 <code>true</code>，这将通知 Quark 去读取绑定的 DOM 元素里的 <code>control-options</code> 属性，来获取设置选项。
+    </li>
+</ul>
+<h2>
+    工厂
+</h2>
+<p>
+    你可以使用 <code data-mine="word">AliHub.Common.fillControl(element, type, options)</code> 函数创建一个 Control。
+    它将初始化一个 Control 类的实例，并传入指定 DOM 节点和设置选项，然后将实例返回给外部调用。
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">namespace</span> <span class="ali-x-code-namespace">AliHub.Common</span> {<br />
+    &nbsp; &nbsp; <span class="ali-x-code-keyword">export function</span> <span class="ali-x-code-function">fillControl</span>&lt;T extends <span class="ali-x-code-namespace">Common</span>.<span class="ali-x-code-class">VisualControl</span>&gt; (<br />
+    &nbsp; &nbsp; &nbsp; &nbsp; element: <span class="ali-x-code-interface">HTMLElement</span> | <span class="ali-x-code-keyword">string</span>,<br />
+    &nbsp; &nbsp; &nbsp; &nbsp; type: <span class="ali-x-code-keyword">string</span> | <span class="ali-x-code-keyword">typeof</span> <span class="ali-x-code-namespace">Common</span>.<span class="ali-x-code-class">VisualControl</span>,<br />
+    &nbsp; &nbsp; &nbsp; &nbsp; options?: <span class="ali-x-code-interface">VisualControlOptionsContract</span>&lt;T&gt; | <span class="ali-x-code-keyword">boolean</span><br />
+    &nbsp; &nbsp; ): T { };<br />
+    }
+</div>
+<p>
+    下面是其参数介绍。
+</p>
+<ul>
+    <li>
+        <code>element</code><br />
+        需要绑定的 DOM 元素或其 ID。
+    </li>
+    <li>
+        <code>type</code><br />
+        需要初始化的 Control 的类型。
+    </li>
+    <li>
+        <code>options</code><br />
+        设置选项，或者返回设置选项的方法，请参考 <code>VisualControlOptionsContract</code> 的注释文档。<br />
+        或者是布尔值 <code>true</code>，这将通知 Quark 去读取绑定的 DOM 元素里的 <code>control-options</code> 属性，来获取设置选项。
+    </li>
+</ul>
+<p>
+    如果需要支持从 DOM 中加载设置选项，你需要设置 <code>control-options</code> 属性。其值为以下任意一项。
+</p>
+<ul>
+    <li>
+        设置选项的 JSON 格式，可以没有最外层大括号。
+    </li>
+    <li>
+        一个方法以返回设置选项，该控件将作为 <code>this</code> 来调用该方法。
+    </li>
+</ul>
+<h2>
+    Web Component
+</h2>
+<p>
+    对于支持 Web Component 的 Control，你可以直接在 HTML 中插入该元素标签，Quark 会自动加载。
+</p>
+<section data-code-control="namespace: 'AliHub.Common', name: 'VisualControl', tagName: 'quark-visual', options: 'VisualControlOptionsContract', hideOptions: true">
+    <div data-key="intro">
+        Visual Control 是最基本的 Control，并可作为其它 Control 的基类，提供渲染、子元素管理、属性绑定和其它功能。
+    </div>
+    <p key="loading">
+        <em>请稍后，更多内容正在加载中……</em>
+    </p>
+</section>
+<h2>
+    设置选项信息
+</h2>
+<code>
+    // Visual Control 的设置选项。<br />
+    // namespace: AliHub.Common.<br />
+    interface VisualControlOptionsContract&lt;T extends VisualControl&gt; {<br />
+    <br />
+    &nbsp; &nbsp; // 样式引用，即 CSS 的 class 值。<br />
+    &nbsp; &nbsp; styleRef?: string[] | string;<br />
+    <br />
+    &nbsp; &nbsp; // 加载前所调用的函数。<br />
+    &nbsp; &nbsp; preInit?: Action1&lt;T&gt;;<br />
+    <br />
+    &nbsp; &nbsp; // 是否不加载子模板。<br />
+    &nbsp; &nbsp; ignoreParts?: boolean;<br />
+    <br />
+    &nbsp; &nbsp; // 需要添加的 DOM 属性。<br />
+    &nbsp; &nbsp; attr?: any;<br />
+    }&nbsp;
+</code>
+<p>
+    许多其它的 Control 的设置选项也基于该接口扩展而来。
+</p>
+<h2>
+    示例
+</h2>
+<p>
+    创建一个 Visual Control 非常的简单，假设我们在页面中已经有一个 <code>DIV</code> 元素 <code data-mine="word">&lt;div id=&quot;demo_container&quot;&gt;&lt;/div&gt;</code>。
+</p>
+<code>
+    // 创建一个 Visual Control 并绑定一个 DOM 元素。<br />
+    var control = new VisualControl("demo_container");
+    <br />
+    <br />
+    // 添加一些子 DOM 并设置其内容。<br />
+    var cnt = control.appendElement(&quot;div&quot;);<br />
+    cnt.innerHTML = &quot;大家好！&quot;;
+</code>
+<p>
+    以上代码中的变量 <code>control</code> 即为一个 <code>VisualControl</code> 类的实例。
+</p>
+<p></p>

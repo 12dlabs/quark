@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ref>
+  <def name="container">
+    <item name="scripts">scripts</item>
+  </def>
+  <group name="common">
+    <scripts>
+      <item container="{def:container\scripts}">index.ts</item>
+      <item container="{def:container\scripts}">kissyLoader.ts</item>
+    </scripts>
+  </group>
+</ref>

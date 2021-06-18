@@ -1,0 +1,74 @@
+<h1>Go through (for ECMAScript 5)</h1>
+<p>
+    Let's start to build a page to show a simple page here. We use Modulex as asynchronous modules loader for example.
+</p>
+<p>
+    Firstly, creates a page with following HTML code. This page should contain following script files.
+</p>
+<ul>
+    <li>Modulex seed and adapter</li>
+</ul>
+<code>
+    &lt;!DOCTYPE html&gt;<br />
+    &lt;html&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;head&gt;<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;title&gt;Sample&lt;/title&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;script src=&quot;https://g.alicdn.com/hi/modulex/5.0.0/seed-debug.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;script src=&quot;https://g.alicdn.com/hi/quark/1.8.1000/index.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;script type=&quot;text/javascript&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AliHub.Runtime.ModulexLoader.addModule(&quot;local&quot;, &quot;./&quot;);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modulex.use(&quot;local/demo&quot;, function (d) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var form = d.form(&quot;page_demo&quot;);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //--&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/script&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;body&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div id=&quot;page_demo&quot;&gt;&lt;/div&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;<br />
+&lt;/html&gt; </code>
+<p>
+    Now, we have prepared all files used to load our library.
+    Following are the scripts which we need implement the business logic.
+    A JavaScript file demo.js is needed.
+</p>
+<code>
+    // demo.js (KISSY 6 / KISSY 5 / Modulex)
+
+<br />
+define(function (require, export, module) {<br />
+&nbsp;&nbsp;&nbsp; // Coding scope: adds code here...<br />
+});</code><p>
+    Firstly, we want to implement a panel to show a customized information, such as a form.
+    We add code into the coding scope in demo.js file.</p>
+<code>
+    // Form generator.<br />
+    export.form = function(id) {<br />
+    &nbsp;&nbsp;&nbsp; var c = new AliHub.Common.BindingControl(id);<br />
+    &nbsp;&nbsp;&nbsp; c.viewModel({ id: &quot;001&quot;, nick: &quot;Kingcean&quot; });<br />
+    &nbsp;&nbsp;&nbsp; c.setTemplate(&quot;ajax&quot;, &quot;form.htm&quot;);<br />
+    &nbsp;&nbsp;&nbsp; return c;<br />
+    }&nbsp;
+</code>
+<p>
+    Then, we create form.htm file to fill view template.
+</p>
+<code>
+    &lt;!-- template-engine: angularjs --&gt;<br />
+    &lt;div id=&quot;__<span>view_control</span>_c_name&quot; ng-if=&quot;model.id&quot;&gt;<br />
+    &nbsp;&nbsp;&nbsp; &lt;span&gt;ID &lt;/span&gt;<br />
+    &nbsp;&nbsp;&nbsp; &lt;input ng-model=&quot;model.id&quot; /&gt;<br />
+    &lt;/div&gt;
+    <br />
+    &lt;div id=&quot;__<span>view_control</span>_c_bio&quot; ng-if=&quot;model.nick&quot;&gt;<br />
+    &nbsp;&nbsp;&nbsp; &lt;span&gt;Nickname &lt;/span&gt;<br />
+    &nbsp;&nbsp;&nbsp; &lt;input ng-model=&quot;model.nick&quot; /&gt;<br />
+    &lt;/div&gt;
+</code>
+<p>
+    And it works now.
+</p>
+<p></p>

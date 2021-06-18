@@ -1,0 +1,51 @@
+﻿<h1>
+    How to import to my project
+</h1>
+<p>
+    You can add following code to insert the library directly.
+</p>
+<code>
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://g.alicdn.com/hub/quark/1.7.891/scripts/index.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;<br />
+</code>
+<p>
+    But you can also import Quark by asynchronous modules loader as well as static script reference. And this is recommended. 
+    Quark supports following ways to load async, please select the one used in your project.
+</p>
+<ul>
+    <li>
+        <a href="#amd">AMD (e.g. RequireJs)</a>
+    </li>
+    <li>
+        <a href="#kissy">Modulex / KISSY 5 / KISSY 6</a>
+    </li>
+</ul>
+<h3>AMD<a name="amd"></a></h3>
+<p>
+    Quark works well by Asynchronous Module Definition (AMD) with RequireJs.
+    Please just put the file in the directories for references, or import by loader config.
+</p>
+<p>
+    RequireJs can be downloaded from <a href="http://requirejs.org/docs/download.html">http://requirejs.org/docs/download.html</a>.
+</p>
+<h3>Modulex / KISSY 5 / KISSY 6<a name="kissy"></a></h3>
+<p>
+    Firstly, adds following script in the page.
+</p>
+<code>
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://g.alicdn.com/hi/quark/1.7.891/index.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+</code>
+<p>
+    And reference it and setup by following script.
+</p>
+<code>
+    require(&quot;quark-bindings/script&quot;).setup();
+</code>
+<p>
+    KISSY is developed by Alibaba Group. Modulex is a folk version from KISSY 5. For details about KISSY and Modulex, please visit the <a href="http://docs.kissyui.com" target="_blank">related documentation</a>.
+</p>
+<h1>Source and references</h1>
+<p>
+    Source code is on <a href="http://gitlab.alibaba-inc.com/hub/quark/" target="_blank">GitLab</a>.
+    To get comment documentation and Type Script declaration file, download from <a href="//nine.alibaba.net/libs/quark/scripts/index.d.ts" type="text/typescript" target="_blank">this</a>.
+</p>
+<p></p>

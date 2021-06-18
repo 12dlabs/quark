@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Completed</title>
+    <script src="https://g.alicdn.com/hub/quark/1.7.898/scripts/index.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <div id="page_file_completed_container">
+        <em>Loading...</em>
+    </div>
+    <script type="text/javascript">
+        (function () {
+            var success = true;
+            var result = null;
+            var targetOrigin = null;
+
+            var qEle = AliHub.Elements;
+            var track = AliHub.Elements.getQuery("callback");
+            var demo = AliHub.Elements.getQuery("demo");
+            if (!!demo) switch (demo) {
+                case "file":
+                    result = "file_" + (new Date()).getTime().toString();
+                    success = true;
+                    break;
+                case "form":
+                    result = {
+                        id: "form_" + (new Date()).getTime().toString(),
+                        demo: true
+                    };
+                    success = true;
+                    break;
+                default:
+                    break;
+            }
+
+            qEle.getById("page_file_completed_container").innerHTML = "<strong>" + (success ? "Completed" : "Failed") + "!</strong>";
+            qEle.postMessagePackage(parent, track, success, result, targetOrigin);
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "@ali/quark",
+  "version": "1.8.1000",
+  "description": "Core library and framework.",
+  "main": "build/scripts/index.min.js",
+  "homepage": "http://quark.alibaba.net",
+  "keywords": [ "Quark", "AliHub", "MVVM", "corlib", "observable", "control", "utilities", "DOM", "MMX", "text", "collection" ],
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.alibaba-inc.com/hub/quark.git"
+  },
+  "author": {
+    "email": "kingcean@live.com",
+    "name": "Kingcean Tuan"
+  },
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  }
+}

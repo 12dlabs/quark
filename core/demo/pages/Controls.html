@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-hans" class="ali-page">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=2.0" />
+    <title>Controls - Quark</title>
+    <script src="https://g.alicdn.com/hi/modulex/5.0.0/seed-debug.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://g.alicdn.com/tb/tracker/1.0.16/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://g.alicdn.com/hi/quark/1.8.1000/index.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        modulex.use("quark/scripts/import.min.js", function (qimp) {
+            AliHub.Common.initPage();
+
+            var TestControl = (function (_super) {
+                __extends(TestControl, _super);
+                function TestControl(id) {
+                    _super.call(this, id);
+                    this.innerHTML("Test");
+                }
+                TestControl.prototype.hello = function () {
+                    this.innerHTML("Hello!");
+                };
+                TestControl.prototype.loadOptions = function (options) {
+                    options = _super.prototype.loadOptions.call(this, options);
+                    if (!options) return options;
+                    if (!!options.html) this.innerHTML(options.html);
+                    return options;
+                };
+                return TestControl;
+            }(AliHub.Common.VisualControl));
+
+            AliHub.Elements.register("test-customized", TestControl);
+            var ele = document.createElement("div");
+            document.body.appendChild(ele);
+            ele.innerHTML = "<test-customized data-flag=\"js\" data-control-options=\"html: 'Bye'\">Y</test-customized>";
+        });
+    </script>
+    <link href="../css/demo.min.css" rel="stylesheet" />
+</head>
+<body class="ali-page-l-portal">
+    <div data-control-type="binding" data-control-options="templateType: 'inner', viewModel: { value: 'Demo' }">
+        <div id="__view_control_container">
+            <div id="__view_control_container_content" data-bind="if: model()">
+                <strong data-bind="text: model().value"></strong>
+            </div>
+        </div>
+        <quark-list data-control-options="function () {
+             var c = this;
+             return {
+                    areSame: 'id',
+                    isBefore: 'created',
+                    areInSameGroup: function (a, b) {
+                        return AliHub.Common.DateTime.sameDate(a.created, b.created);
+                    },
+                    webData: {
+                        key: c.getElement().dataset['url']
+                    }
+                };
+            }" data-url="http://quark.alibaba.net/api/sample/asset/list.json">
+            <template data-part="header">
+                <div id="__view_control_container" data-bind="if: info()">
+                    <em data-bind="text: hub().Common.DateTime.parse(info().firstItem.model.created).toLocaleDateString()"></em>
+                </div>
+            </template>
+            <template data-part="item">
+                <div id="__view_control_container" data-bind="if: model()">
+                    <span data-bind="text: model().name, attr: { title: model().id }"></span>
+                    <span data-bind="text: hub().Common.DateTime.parse(model().created).toLocaleTimeString()"></span>
+                </div>
+            </template>
+        </quark-list>
+    </div>
+    <test-customized data-flag="html" data-control-options="html: 'Hey'">X</test-customized>
+</body>
+
+</html>

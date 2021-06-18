@@ -1,0 +1,6 @@
+﻿{
+    "scripts": [
+        "scripts/index.js",
+        "scripts/kissyLoader.js"
+    ]
+}

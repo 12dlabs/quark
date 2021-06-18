@@ -1,0 +1,20 @@
+{
+  "name": "@ali/files",
+  "version": "1.1.160",
+  "description": "Files library.",
+  "main": "wwwroot/js/common.js",
+  "homepage": "http://gitlab.alibaba-inc.com/hub/files",
+  "keywords": [ "file", "folder", "directory", "explorer", "upload", "image" ],
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.alibaba-inc.com/hub/files.git"
+  },
+  "author": {
+    "email": "kingcean@live.com",
+    "name": "Kingcean Tuan"
+  },
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  }
+}

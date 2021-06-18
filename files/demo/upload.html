@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html class="ali-page">
+<head>
+    <meta charset="utf-8" />
+    <title>Uploader</title>
+    <script src="https://g.alicdn.com/hi/modulex/5.0.0/seed-debug.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://g.alicdn.com/tb/tracker/1.0.16/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://g.alicdn.daily.taobao.net/hi/quark/1.7.936/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/config.js" type="text/javascript" charset="utf-8"></script>
+    <link href="css/test.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="page_demo_container" class="ali-demo-files-upload">
+        <div id="page_demo_container_upload">
+        </div>
+        <div id="page_demo_container_submit">
+            <button id="page_demo_container_submit_button">Submit</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        modulex.use("files/js/common", function (files) {
+            var qEle = AliHub.Elements;
+
+            var uploadC = new files.UploadControl("page_demo_container_upload");
+            uploadC.url = "../wwwroot/pages/completed.html?demo=file&callback=?";
+
+            qEle.listen("page_demo_container_submit_button", "click", function (ev) {
+                if (uploadC.isUploading()) {
+                    console.error("Still uploading");
+                    return;
+                }
+
+                console.info("Submitted.", uploadC.result());
+            });
+        });
+    </script>
+</body>
+</html>

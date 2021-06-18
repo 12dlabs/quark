@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html class="ali-page">
+<head>
+    <meta charset="utf-8" />
+    <title>Explorer</title>
+    <script src="https://g.alicdn.com/hi/modulex/5.0.0/seed-debug.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://g.alicdn.com/tb/tracker/1.0.16/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://g.alicdn.daily.taobao.net/hi/quark/1.7.936/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/config.js" type="text/javascript" charset="utf-8"></script>
+    <link href="css/test.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="page_demo_container" class="ali-demo-files-explorer">
+        <div id="page_demo_container_tree">
+        </div>
+    </div>
+    <script type="text/javascript">
+        modulex.use("files/js/common", function (files) {
+            var qEle = AliHub.Elements;
+
+            var tree = new files.TreeControl("page_demo_container_tree");
+            tree.push({
+                name: "A",
+                isDir: true,
+                children: [
+                    {
+                        name: "H",
+                        isDir: true,
+                        children: [
+                            {
+                                name: "O",
+                                isDir: true
+                            }, {
+                                name: "P",
+                                type: "jpg"
+                            }, {
+                                name: "Q",
+                                type: "jpg"
+                            }
+                        ]
+                    }, {
+                        name: "I",
+                        isDir: true,
+                        children: [
+                            {
+                                name: "R",
+                                type: "jpg"
+                            }
+                        ]
+                    }, {
+                        name: "J",
+                        isDir: true
+                    }, {
+                        name: "K",
+                        type: "jpg"
+                    }
+                ]
+            }, {
+                name: "B",
+                isDir: true,
+                children: [
+                    {
+                        name: "U",
+                        type: "txt"
+                    }, {
+                        name: "V",
+                        type: "jpg"
+                    }, {
+                        name: "W",
+                        type: "txt"
+                    }
+                ]
+            }, {
+                name: "C",
+                type: "jpg"
+            }, {
+                name: "D",
+                type: "txt"
+            }, {
+                name: "E",
+                isDir: true
+            });
+            tree.adaptHeight(window);
+            tree.itemSelected.add(function (ev) {
+                console.debug("[Selected] " + ev.name + " (isDir: " + (ev.isDir ? "true" : "false") + ", type: " + (ev.type || "n/a") + ").");
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<section data-code-control="namespace: 'AliHub.Common', name: 'ActivityControl', tagName: 'quark-activity', options: 'ActivityControlOptionsContract'">
+    You can render and manage a control to record the path user walks through.
+    This is useful for single page and other senarios like the one when we need turn back or control what should be displayed.
+</section>
+<h2>
+    Samples
+</h2>
+<code>
+    // Creates a activity control.<br />
+    var control = AliHub.Common.activityControl(<br />
+&nbsp;&nbsp;&nbsp; &quot;demo_container&quot;,&nbsp;&nbsp;&nbsp; // Container element ID.<br />
+    );<br />
+<br />
+// Adds a control as one of steps.<br />
+    var firstPanel = control.add();<br />
+    firstPanel.appendElement(&quot;div&quot;).innerHTML = &quot;First page&quot;;<br />
+<br />
+// Adds another control as one of steps.<br />
+var secondPanel = control.add(function (cid) {<br />
+&nbsp;&nbsp;&nbsp; var childControl = new AliHub.Common.VisualControl(cid);<br />
+&nbsp;&nbsp;&nbsp; childControl.appendElement(&quot;div&quot;).innerHTML = &quot;Second page&quot;;<br />
+});
+<br />
+<br />
+// Turns back.<br />
+control.back();</code><p>
+    The variable object <code>control</code> is the instance of class <code>ActivityControl</code>.
+</p>
+<p></p>

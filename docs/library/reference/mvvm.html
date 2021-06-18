@@ -1,0 +1,154 @@
+﻿<h1>
+    Enhanced MVVM
+</h1>
+<p>
+    Quark supports MVVM with enhanced functionalities.
+    You can create an MVVM visual control to bind model with convertor and other information to a specific template set,
+    <code data-mine="word"><span class="ali-x-code-namespace">AliHub.Common</span>.<span>BindingControl</span>&lt;T&gt;</code> is one of built-in MVVM controls and will be introduced later.
+</p>
+<h2>
+    Observable
+</h2>
+<p>
+    You can call <code data-mine="word"><span class="ali-x-code-namespace">AliHub.Common</span>.<span>listenedObj</span>&lt;T&gt;</code> to resolve an instance for data binding.
+    See the comment documentation of the <code data-mine="word"><span class="ali-x-code-namespace">AliHub.Common</span>.<span>ListenedObjectContract</span>&lt;T&gt;</code> interface which the function will return the object as this type.
+</p>
+<h2>
+    View template
+</h2>
+<p>
+    The template can be set to load by different template engine, e.g. AngularJS, Knockout.
+    You need just insert one of following lines in front of the template body to mark which temlate engine you want to use.
+    And you need import the js file to the page before using.
+</p>
+<ul>
+    <li>
+        <span>Knockout</span><br />
+        <code data-mine="word"><span class="ali-x-code-comment">&lt;!-- template-engine: knockout --&gt;</span></code>
+    </li>
+    <li>
+        <span>AngularJS</span><br />
+        <code data-mine="word"><span class="ali-x-code-comment">&lt;!-- template-engine: angularjs --&gt;</span></code>
+    </li>
+    <li>
+        <span>Vue.js</span><br />
+        <code data-mine="word"><span class="ali-x-code-comment">&lt;!-- template-engine: vuejs --&gt;</span></code>
+    </li>
+</ul>
+<p>
+    Knockout is the default template engine and it will be loaded automatically if you use AMD, CommonJS or KISSY/Modulex to load Quark.
+</p>
+<p>
+    There are several template source.
+</p>
+<ul>
+    <li>
+        ajax<br />Resolves via GET or JSONP.
+    </li>
+    <li>
+        static<br />Resolves by an HTML string.
+    </li>
+    <li>
+        inner<br />Resolves from the DOM bound.
+    </li>
+    <li>
+        element<br />Resolves from a specific DOM.
+    </li>
+</ul>
+<section data-code-control="namespace: 'AliHub.Common', name: 'BindingControl', tagName: 'quark-binding', options: 'BindingControlOptionsContract', hideOptions: true, optionsSample: {
+            viewModel: { name: 'Kingcean' }
+         }">
+    <div data-key="intro">
+        Binding control is used to make a contract between view template, view model (and converted) with view extenders, view additional info and other information.
+        This is an extended-MVVM mode control for basic usages.
+    </div>
+    <div data-key="templstrings" style="display: none;">
+        &lt;<span class="ali-x-code-tagname">part</span> <span class="ali-x-code-attr">key</span>=<span class="ali-x-code-string">&quot;content&quot;</span>&gt;<br />
+        &nbsp; &nbsp; <span class="ali-x-code-comment">&lt;!-- template-engine: angularjs --&gt;</span><br />
+        &nbsp; &nbsp; &lt;<span class="ali-x-code-tagname">div</span>&gt;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &lt;<span class="ali-x-code-tagname">span</span>&gt;<span>{</span><span>{</span><span class="ali-x-code-bind">model.name</span><span>}</span><span>}</span>&lt;/<span class="ali-x-code-tagname">span</span>&gt;<br />
+        &nbsp; &nbsp; &lt;/<span class="ali-x-code-tagname">div</span>&gt;<br />
+        &lt;/<span class="ali-x-code-tagname">part</span>&gt;
+    </div>
+    <p key="loading">
+        <em>Loading content...</em>
+    </p>
+</section>
+<h2>
+    Options information
+</h2>
+<code>
+    // Binding control options.<br />
+    // namespace: AliHub.Common.<br />
+    interface BindingControlOptionsContract&lt;T&gt; extends VisualControlOptionsContract&lt;BindingControl&lt;T&gt;&gt; {<br />
+    <br />
+    &nbsp; &nbsp; // Template source type.<br />
+    &nbsp; &nbsp; templateType?: string;<br />
+    <br />
+    &nbsp; &nbsp; // Template source value.<br />
+    &nbsp; &nbsp; template?: string;<br />
+    <br />
+    &nbsp; &nbsp; // Convertor, a handler to convert view model to the one used for view.<br />
+    &nbsp; &nbsp; convertor?: Func1&lt;T, any&gt;;<br />
+    <br />
+    &nbsp; &nbsp; // View model.<br />
+    &nbsp; &nbsp; viewModel?: T;<br />
+    <br />
+    &nbsp; &nbsp; // The extenders.<br />
+    &nbsp; &nbsp; extender?: BindingControlExtender&lt;T&gt;[] | BindingControlExtender&lt;T&gt;;<br />
+    <br />
+    &nbsp; &nbsp; // The binding control to bind for view model and other data properties.<br />
+    &nbsp; &nbsp; bindControl?: BindingControl&lt;T&gt;;<br />
+    }&nbsp;
+</code>
+<h2>
+    Samples
+</h2>
+<p>
+    To render a binding control, you need prepare a view template and view model firstly.
+    Suppose we have a view model like below.
+</p>
+<code>
+    var data = {<br />
+    &nbsp; &nbsp; &quot;name&quot;: &quot;Fruit&quot;,<br />
+    &nbsp; &nbsp; &quot;list&quot;: [<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &quot;Apple&quot;,<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &quot;Banana&quot;,<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &quot;Cherry&quot;<br />
+    &nbsp; &nbsp; ]<br />
+    };
+</code>
+<p>
+    And we want to render an element, with a paragraph of property <code>data.name</code> and a list of property <code>data.list</code>.
+    So now, we need have following view template.
+</p>
+<code>
+    &lt;div&gt;<br />
+    &nbsp; &nbsp; &lt;p&gt;<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;span data-bind=&quot;text: model().name&quot;&gt;&lt;/span&gt;<br />
+    &nbsp; &nbsp; &lt;/p&gt;<br />
+    &nbsp; &nbsp; &lt;ul data-bind=&quot;foreach: model().list&quot;&gt;<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &lt;li data-bind=&quot;text: $data&quot;&gt;&lt;/li&gt;<br />
+    &nbsp; &nbsp; &lt;/ul&gt;<br />
+    &lt;/div&gt;
+</code>
+<p>
+    Here, <code>model()</code> means the view model.
+    Suppose we save the view template string to a variable string <code>templ</code>.
+    To render this to a specific <code>DIV</code> element such as the one with identifier <code>demo_container</code> (suppose <code data-mine="word">&lt;div id="demo_container"&gt;&lt;/div&gt;</code> exists somewhere),
+    we need process following code.
+</p>
+<code>
+    // Creates a binding control.<br />
+    var control = AliHub.Common.bindingControl(<br />
+    &nbsp; &nbsp; &quot;demo_container&quot;,&nbsp; &nbsp; // Container element ID.<br />
+    &nbsp; &nbsp; {&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; // Options.<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &quot;viewModel&quot;: data,<br />
+    &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &quot;template&quot;: templ<br />
+    &nbsp; &nbsp; }<br />
+    );
+</code>
+<p>
+    The variable object <code>control</code> is the instance of class <code>BindingControl&lt;T&gt;</code>.
+</p>
+<p></p>

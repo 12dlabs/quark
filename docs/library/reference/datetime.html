@@ -1,0 +1,84 @@
+﻿<p>
+    There are lots of utilities for date and time.
+</p>
+<h1>
+    AliHub.Common.DateTime
+</h1>
+<p>
+    This is a powerful tools to provide lots of functions for date and time.
+</p>
+<h2>
+    Functions
+</h2>
+<p>
+    See comment documentation.
+</p>
+<h2>
+    Samples
+</h2>
+<code>
+    var qDate = AliHub.Common.DateTime;<br />
+    var date = new Date(2015, 9, 10, 10, 10);<br />
+    <br />
+    // Parses the time tick to Date object.<br />
+    var str1 = qDate.parse(date.getTime());<br />
+    <br />
+    // Gets a customized string (e.g. 2015-10-10 10:10:00.000).<br />
+    var str2 = qDate.toCustomizedString(date, "yyyy-MM-dd HH:mm:ss.mmm");<br />
+    <br />
+    // Gets horoscope string.<br />
+    var str3 = qDate.getHoroscope(date).symbo;<br />
+    <br />
+    // Gets time span between two dates in millisecond and formatted string.<br />
+    var span1 = qDate.getSpan(date, qDate.parse("now"));<br />
+    var str4 = qDate.getSpanString(date, qDate.parse("now"));
+    <br />
+    // To get a formatted string of time span from a given date to now, you can also use following way.<br />
+    var str5 = qDate.getNowSpanString(date)
+    <br />
+    // You can also add seconds or days to a given date.<br />
+    date = qDate.addSeconds(date, 200);<br />
+    date = qDate.addDays(date, 2);
+</code>
+<h1>
+    AliHub.Common.Stopwatch
+</h1>
+<p>
+    This is a powerful stopwatch to record time span of an action.
+</p>
+<h2>
+    Member properties and methods
+</h2>
+<p>
+    See comment documentation.
+</p>
+<h2>
+    Samples
+</h2>
+<code>
+    var sw = new AliHub.Common.Stopwatch();<br />
+    <br />
+    // You can set some options such as a URL to record the result with a tracking identifier.<br />
+    sw.trackingId = "15E5E06C-3127-4099-8285-FDC98772CEFB";<br />
+    sw.notificationOptions = {<br />
+    &nbsp; &nbsp; subject: null,<br />
+    &nbsp; &nbsp; key: "/api/sample/asset/time.html?tracking={tracking}&channel={channel}&message={message}",<br />
+    &nbsp; &nbsp; channel: "test"<br />
+    };<br />
+    <br />
+    // Start the timer.<br />
+    sw.record();<br />
+    <br />
+    // You can stop it whenever and it will send the response automatically.<br />
+    // You can set an optional message to mark why it needs stop.<br />
+    sw.stop("1st");<br />
+    <br />
+    // You can also resume it. And stop it again.<br />
+    sw.record(true);<br />
+    sw.stop("2nd");<br />
+    <br />
+    // Or record a new one. And stop.<br />
+    sw.record();<br />
+    sw.stop("3rd");
+</code>
+<p></p>

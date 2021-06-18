@@ -1,0 +1,105 @@
+﻿<section data-code-control="namespace: 'AliHub.Collection', name: 'TableControl<T>', tagName: 'quark-table', options: 'TableControlOptionsContract<T>', optionsSample: {
+            headCellConvertor: function (m) {
+                if (typeof m === 'string') return {
+                    type: 'string',
+                    name: m
+                };
+
+                if (!!m.name) return {
+                    type: 'name',
+                    name: m.name
+                };
+
+                m.date = ql.Common.DateTime.parse(m.date);
+                if (!!m.date) return {
+                    type: 'date',
+                    name: m.date.getDate().toString()
+                }
+
+                return {
+                    type: 'unknown',
+                    name: ''
+                }
+            },
+            cellConvertor: function (m) {
+                if (!m || !m.workShift) return { workShift: null }
+                var workShift = c.getEntry({ id: m.workShift, type: 'workShifts' });
+                return { workShift: workShift };
+            },
+            webData: {
+                subject: '**$this**',
+                key: 'table',
+                propertyKey: 'values',
+                schemaKey: 'schema'
+            }
+        }, urlsSample: {
+            table: 'http://quark.alibaba.net/api/sample/asset/table.json'
+        }">
+    <div key="intro">
+        You can render a maintainable table with advanced cell resolving.
+        The cell and head cell support MVVM mode.
+    </div>
+    <div key="templates" style="display: none;">
+        <part key="head">
+            <div data-temp-bind="if: converted()">
+                <span data-temp-bind="text: converted().name"></span>
+            </div>
+        </part>
+        <part key="cell">
+            <div>
+                <!-- ko if: model() -->
+                <!-- ko if: info().column.property === 'items' && converted().workShift -->
+                <span data-temp-bind="text: converted().workShift.name.substring(0, 1), style: { color: model().work ? 'orange' : 'green' }"></span>
+                <!-- /ko -->
+                <!-- ko if: info().column.property === 'items' && !converted().workShift -->
+                <span>&nbsp;</span>
+                <!-- /ko -->
+                <!-- ko if: info().column.property !== 'items' -->
+                <span data-temp-bind="text: model()"></span>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: !model() -->
+                <!-- ko if: info().column.property !== 'items' -->
+                <span>&nbsp;</span>
+                <!-- /ko -->
+                <!-- /ko -->
+            </div>
+        </part>
+    </div>
+    <p key="loading">
+        <em>Loading content...</em>
+    </p>
+</section>
+<h2>
+    Schema
+</h2>
+<p>
+    You can define the schema of the table by following contract.
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">export interface</span> <span class="ali-x-code-interface">TableColumnContract</span> {<br />
+    &nbsp; &nbsp; model: <span class="ali-x-code-keyword">any</span>;<br />
+    &nbsp; &nbsp; width?: <span class="ali-x-code-keyword">number</span> | <span class="ali-x-code-keyword">string</span>;<br />
+    &nbsp; &nbsp; styleRef?: <span class="ali-x-code-keyword">string</span> | <span class="ali-x-code-keyword">string</span>[];<br />
+    &nbsp; &nbsp; render?: <span class="ali-x-code-namespace">Common</span>.<span class="ali-x-code-interface">Action1</span>&lt;<span class="ali-x-code-interface">TableColumnArgContract</span>&gt;;<br />
+    &nbsp; &nbsp; valueRender?: <span class="ali-x-code-namespace">Common</span>.<span class="ali-x-code-interface">Action1</span>&lt;<span class="ali-x-code-interface">TableCellArgContract</span>&gt;;<br />
+    &nbsp; &nbsp; property: <span class="ali-x-code-keyword">string</span>;<br />
+    &nbsp; &nbsp; mapping: <span class="ali-x-code-enum">ReferenceMappingTypes</span> | <span class="ali-x-code-keyword">number</span>;<br />
+    &nbsp; &nbsp; key?: <span class="ali-x-code-keyword">string</span>;<br />
+    &nbsp; &nbsp; [key: <span class="ali-x-code-keyword">string</span>]: <span class="ali-x-code-keyword">any</span>;<br />
+    }
+</div>
+<p>
+    Following is column mapping.
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">export enum</span> <span class="ali-x-code-enum">ReferenceMappingTypes</span> {<br />
+    &nbsp; &nbsp; Property = <span class="ali-x-code-number">0</span>,<br />
+    &nbsp; &nbsp; Id = <span class="ali-x-code-number">1</span>,<br />
+    &nbsp; &nbsp; Key = <span class="ali-x-code-number">2</span>,<br />
+    &nbsp; &nbsp; Index = <span class="ali-x-code-number">3</span>,<br />
+    &nbsp; &nbsp; Function = <span class="ali-x-code-number">6</span>,<br />
+    &nbsp; &nbsp; Static = <span class="ali-x-code-number">7</span><br />
+    }
+</div>
+<p></p>

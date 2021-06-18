@@ -1,0 +1,66 @@
+<h1>Quark</h1>
+<p>
+    A JavaScript library that helps you to create rich web apps with low cost to build and maintain.
+</p>
+<p>
+    <img src="../../inc/images/figures/architecture_mvc.png" alt="Architecture" />
+</p>
+<ul>
+    <li>
+        MVC - Model by data set, View by visual controls, Controller by view controllers and page controllers.
+    </li>
+    <li>
+        Extended MVVM mode including data models, view templates, view extenders, view models.
+    </li>
+    <li>
+        Self-adaptive for mobile, desktop and TV.
+    </li>
+    <li>
+        Asynchronous modules loader supports.
+    </li>
+    <li>
+        Web-components.
+    </li>
+</ul>
+<p>
+    For <a href="https://www.typescriptlang.org/" target="_blank">Type Script</a> user (required version 2.0 or higher),
+    please download Quark typed definition file to get comment documentation.
+</p>
+<p>
+    Select one on the left to read further information.
+</p>
+<h2>
+    How to import to my project
+</h2>
+<p>
+    You can add following code to insert the library directly.
+</p>
+<code data-mine="word">
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://g.alicdn.com/hub/quark/1.8.1000/scripts/index.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;<br />
+</code>
+<p>
+    But you can also import Quark by asynchronous modules loader as well as static script reference. And that way is recommended.
+</p>
+<h3>AMD<a name="amd"></a></h3>
+<p>
+    Quark works well by Asynchronous Module Definition (AMD) with RequireJs.
+    Please just put the file in the directories for references, or import by loader config.
+</p>
+<p>
+    RequireJs can be downloaded from <a href="https://requirejs.org/docs/download.html">https://requirejs.org/docs/download.html</a>.
+</p>
+<h3>Modulex / KISSY 5 / KISSY 6<a name="kissy"></a></h3>
+<p>
+    Firstly, adds following script in the page.
+</p>
+<code data-mine="word">
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://g.alicdn.com/hi/quark/1.8.1000/index.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+</code>
+<p>
+    It will extends <a href="http://docs.kissyui.com" target="_blank">KISSY</a> automatically, such as AMD modules loader capability.
+    And then, you can resolve it in your module by following script.
+</p>
+<code data-mine="word">
+    require(&quot;quark/script/import.min.js&quot;);
+</code>
+<p></p>

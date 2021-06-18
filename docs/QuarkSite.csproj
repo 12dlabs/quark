@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6CEC2D34-DB95-4854-AE9C-C3181B207758}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Alibaba.Quark.Online.Web</RootNamespace>
+    <AssemblyName>AliQuark.Online</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TypeScriptToolsVersion>2.0</TypeScriptToolsVersion>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="inc\css\pages.css">
+      <DependentUpon>pages.less</DependentUpon>
+    </Content>
+    <Content Include="inc\css\pages.min.css">
+      <DependentUpon>pages.css</DependentUpon>
+    </Content>
+    <Content Include="inc\images\figures\architecture_mvc.png" />
+    <Content Include="inc\images\icons\logos\quark_1a.png" />
+    <Content Include="inc\images\icons\logos\quark_1a_s.png" />
+    <Content Include="inc\scripts\config.js" />
+    <Content Include="index.html" />
+    <Content Include="library\home\index.html" />
+    <Content Include="library\home\welcome.html" />
+    <Content Include="library\home\zh-Hans.html" />
+    <Content Include="library\reference\control-zh-Hans.html" />
+    <Content Include="library\reference\gothrough-js.html" />
+    <Content Include="library\reference\gothrough-ts.html" />
+    <Content Include="library\reference\intro.html" />
+    <Content Include="library\reference\localization-zh-Hans.html" />
+    <Content Include="library\reference\localization.html" />
+    <Content Include="library\reference\mvvm-zh-Hans.html" />
+    <Content Include="library\reference\setup.html" />
+    <Content Include="library\reference\zh-Hans.html" />
+    <Content Include="library\reference\camera.html" />
+    <Content Include="library\reference\Flipper.html" />
+    <Content Include="library\reference\image.html" />
+    <Content Include="library\reference\element.html" />
+    <Content Include="library\reference\table.html" />
+    <Content Include="library\reference\reflection.html" />
+    <Content Include="library\reference\datetime.html" />
+    <Content Include="library\reference\text.html" />
+    <Content Include="library\reference\collection.html" />
+    <Content Include="library\reference\SingleFlowPanel.html" />
+    <Content Include="library\reference\SwitchControl.html" />
+    <Content Include="library\reference\audio.html" />
+    <Content Include="library\reference\web.html" />
+    <Content Include="library\reference\index.html" />
+    <Content Include="library\reference\mvvm.html" />
+    <Content Include="library\reference\ActivityControl.html" />
+    <Content Include="library\reference\control.html" />
+    <Content Include="library\reference\list.html" />
+    <Content Include="library\reference\versions.html" />
+    <Content Include="libs\knockout\knockout-3.2.0.debug.js" />
+    <Content Include="libs\knockout\knockout-3.2.0.js" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="kingcode.pfx" />
+    <Content Include="api\sample\asset\list.json" />
+    <Content Include="inc\css\pages.less" />
+    <Content Include="api\sample\asset\table.json" />
+    <Content Include="api\sample\asset\duration.json" />
+    <Content Include="api\sample\asset\form.json" />
+    <None Include="compilerconfig.json" />
+    <Content Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </Content>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="inc\scripts\common.ts" />
+    <TypeScriptCompile Include="inc\scripts\pages.ts" />
+    <TypeScriptCompile Include="inc\scripts\zh-Hans.ts" />
+    <TypeScriptCompile Include="libs\angularjs\angular-animate.d.ts" />
+    <TypeScriptCompile Include="libs\angularjs\angular-cookies.d.ts" />
+    <TypeScriptCompile Include="libs\angularjs\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="libs\angularjs\angular-resource.d.ts" />
+    <TypeScriptCompile Include="libs\angularjs\angular-route.d.ts" />
+    <TypeScriptCompile Include="libs\angularjs\angular-sanitize.d.ts" />
+    <TypeScriptCompile Include="libs\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="libs\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="libs\knockout\knockout.d.ts" />
+    <TypeScriptCompile Include="libs\quark-panels\scripts\common.d.ts" />
+    <TypeScriptCompile Include="libs\quark-panels\scripts\split.d.ts" />
+    <TypeScriptCompile Include="libs\quark\scripts\index.d.ts" />
+    <TypeScriptCompile Include="libs\requirejs\require.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="inc\config\" />
+    <Folder Include="inc\content\" />
+    <Folder Include="inc\generated\" />
+    <Folder Include="inc\icons\" />
+    <Folder Include="inc\images\components\" />
+    <Folder Include="inc\svg\" />
+    <Folder Include="inc\templates\" />
+    <Folder Include="libs\highcharts\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>kingcode.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptModuleKind>amd</TypeScriptModuleKind>
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptModuleKind>amd</TypeScriptModuleKind>
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2603</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2603/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

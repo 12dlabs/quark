@@ -1,0 +1,745 @@
+﻿/*  --------------------
+ *  Common style - Files
+ *  (c) Kingcean Tuan, 2014.
+ *
+ *  File  common.less
+ *  Description  Common CSS.
+ *  Owner  Kingcean Tuan <kingcean@live.com>
+ *  --------------------  */
+
+@charset "utf-8";
+
+body {
+
+}
+
+@selectColor: #09F;
+
+.ali-controls-files-upload {
+    display: block;
+}
+
+.ali-controls-files-upload > ul.ali-container-main {
+    padding: 0;
+    margin: 0;
+    display: block;
+    list-style: none;
+
+    > li {
+        padding: 0;
+        margin: 0;
+        display: block;
+        list-style: none;
+
+        > span {
+            padding-right: 20px;
+        }
+        
+        > em {
+            font-style: normal;
+            font-weight: normal;
+            padding-right: 20px;
+            cursor: default;
+        }
+
+        > em.ali-state-progress-loading {
+            color: royalblue;
+        }
+
+        > em.ali-state-progress-success {
+            color: green;
+        }
+
+        > em.ali-state-progress-error {
+            color: firebrick;
+        }
+
+        > button {
+            color: red;
+            background-color: transparent;
+            padding: 0;
+            margin: 0;
+            border: 0 none transparent;
+            outline: 0 none transparent;
+            cursor: pointer;
+        }
+    }
+}
+
+.ali-controls-files-upload > div.ali-container-main {
+    display: block;
+}
+
+.ali-controls-files-tree {
+    display: block;
+}
+
+.ali-controls-files-tree > div.ali-container-nav {
+    padding: 6px 10px;
+    border-bottom: 1px solid #DDD;
+    position: relative;
+
+    > .ali-x-section-actions,
+    > .ali-x-section-search {
+        height: 32px;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+    }
+
+    > .ali-x-section-actions {
+        > .ali-x-field-action {
+            background-color: rgba(128, 128, 128, 0.1);
+            width: 16px;
+            height: 16px;
+            padding: 8px;
+            margin: 0;
+            border-radius: 16px;
+            cursor: pointer;
+            -moz-transition: 0.4s;
+            -o-transition: 0.4s;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+        }
+
+        > .ali-x-field-action:hover {
+            background-color: rgba(128, 128, 128, 0.2);
+            -moz-transition: 0.2s;
+            -o-transition: 0.2s;
+            -webkit-transition: 0.2s;
+            transition: 0.2s;
+        }
+    }
+
+    > .ali-x-section-search {
+        top: 0;
+        position: absolute;
+        left: 80px;
+        right: 20px;
+    }
+
+    > .ali-x-section-search > input[type=search] {
+        line-height: 32px;
+        width: 100%;
+        height: 32px;
+        background-color: transparent;
+        padding: 0 4px 0 24px;
+        margin: 0;
+        border: 0 none transparent;
+        outline: 0 none transparent;
+    }
+
+    > .ali-x-section-search > svg.ali-x-field-icon {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        left: 4px;
+        top: 8px;
+    }
+}
+
+.ali-controls-files-tree > ul.ali-files-container-tree {
+    padding: 0;
+    margin: 0;
+    display: block;
+    list-style: none;
+
+    > li.ali-container-main > ul.ali-container-main,
+    ul.ali-container-main > li.ali-container-main > ul.ali-container-main {
+        padding: 0 0 0 10px;
+        margin: 0;
+        display: block;
+        list-style: none;
+    }
+
+    > li.ali-container-main,
+    > li.ali-container-main > ul.ali-container-main > li.ali-container-main,
+    ul.ali-container-main > li.ali-container-main > ul.ali-container-main > li.ali-container-main {
+        padding: 0;
+        margin: 0;
+        display: block;
+        list-style: none;
+
+        > div.ali-container-main {
+            background-color: transparent;
+            line-height: 28px;
+            text-overflow: ellipsis;
+            height: 28px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            -moz-transition: ease-out 0.2s;
+            -o-transition: ease-out 0.2s;
+            -webkit-transition: ease-out 0.2s;
+            transition: ease-out 0.2s;
+            position: relative;
+            -moz-box-sizing: content-box;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+            white-space: nowrap;
+            overflow: hidden;
+
+            > .ali-x-field-icon {
+                vertical-align: top;
+                width: 16px;
+                height: 16px;
+                padding: 6px 6px 6px 2px;
+                display: inline-block;
+
+                > svg {
+                    vertical-align: top;
+                    width: 16px;
+                    height: 16px;
+
+                    path.ali-x-svg-fill, circle.ali-x-svg-fill {
+                        fill: rgba(255, 255, 255, 0.6);
+                    }
+                }
+            }
+
+            > .ali-x-field-expand {
+                vertical-align: top;
+                width: 16px;
+                height: 16px;
+                padding: 6px 2px;
+                -moz-transition: ease-out 1s;
+                -o-transition: ease-out 1s;
+                -webkit-transition: ease-out 1s;
+                transition: ease-out 1s;
+                opacity: 0;
+                display: inline-block;
+
+                > .ali-x-field-empty,
+                > .ali-x-field-collapsed,
+                > .ali-x-field-expanded {
+                    vertical-align: top;
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            > strong.ali-x-field-name {
+                font-weight: normal;
+                vertical-align: top;
+            }
+
+            > em.ali-x-field-type {
+                display: none;
+                vertical-align: top;
+            }
+        }
+
+        > div.ali-container-main:hover {
+            background-color: fade(@selectColor, 10);
+            -moz-transition: ease-out 0.1s;
+            -o-transition: ease-out 0.1s;
+            -webkit-transition: ease-out 0.1s;
+            transition: ease-out 0.1s;
+        }
+    }
+
+    > li.ali-container-main.ali-state-active-t,
+    > li.ali-container-main > ul.ali-container-main > li.ali-container-main.ali-state-active-t,
+    ul.ali-container-main > li.ali-container-main > ul.ali-container-main > li.ali-container-main.ali-state-active-t {
+        > div.ali-container-main {
+            background-color: fade(@selectColor, 20);
+            border-color: fade(@selectColor, 30);
+            -moz-transition: ease-out 0.1s;
+            -o-transition: ease-out 0.1s;
+            -webkit-transition: ease-out 0.1s;
+            transition: ease-out 0.1s;
+        }
+    }
+
+    > li.ali-container-main.ali-files-file,
+    > li.ali-container-main > ul.ali-container-main > li.ali-container-main.ali-files-file,
+    ul.ali-container-main > li.ali-container-main > ul.ali-container-main > li.ali-container-main.ali-files-file {
+        display: none;
+    }
+}
+
+.ali-controls-files-tree:hover > ul.ali-files-container-tree {
+    > li.ali-container-main,
+    > li.ali-container-main > ul.ali-container-main > li.ali-container-main,
+    ul.ali-container-main > li.ali-container-main > ul.ali-container-main > li.ali-container-main {
+        > div.ali-container-main {
+            > .ali-x-field-expand {
+                opacity: 1;
+                -moz-transition: 0.2s;
+                -o-transition: 0.2s;
+                -webkit-transition: 0.2s;
+                transition: 0.2s;
+            }
+        }
+    }
+}
+
+.ali-controls-files-tree.ali-files-with-file > ul.ali-files-container-tree {
+    > li.ali-container-main.ali-files-file,
+    ul.ali-container-main > li.ali-container-main > ul.ali-container-main > li.ali-container-main.ali-files-file {
+        display: block;
+    }
+}
+
+@-moz-keyframes ali-files-container-files-show {
+    from {
+        opacity: 0.4;
+        padding-left: 20px;
+    }
+    to {
+        opacity: 1;
+        padding-left: 30px;
+    }
+}
+@-webkit-keyframes ali-files-container-files-show {
+    from {
+        opacity: 0.4;
+        padding-left: 20px;
+    }
+    to {
+        opacity: 1;
+        padding-left: 30px;
+    }
+}
+@keyframes ali-files-container-files-show {
+    from {
+        opacity: 0.4;
+        padding-left: 20px;
+    }
+    to {
+        opacity: 1;
+        padding-left: 30px;
+    }
+}
+
+@-moz-keyframes ali-files-container-files-icon-show {
+    from {
+        left: 1px;
+        opacity: 0.2;
+    }
+    to {
+        left: 6px;
+        opacity: 1;
+    }
+}
+@-webkit-keyframes ali-files-container-files-icon-show {
+    from {
+        left: 1px;
+        opacity: 0.2;
+    }
+    to {
+        left: 6px;
+        opacity: 1;
+    }
+}
+@keyframes ali-files-container-files-icon-show {
+    from {
+        left: 1px;
+        opacity: 0.2;
+    }
+    to {
+        left: 6px;
+        opacity: 1;
+    }
+}
+
+.ali-controls-files-tree > ul.ali-files-container-files {
+    padding: 0;
+    margin: 0;
+    display: block;
+    list-style: none;
+
+    > li.ali-container-main {
+        background-color: transparent;
+        line-height: 30px;
+        padding: 0 0 0 30px;
+        margin: 0;
+        display: block;
+        list-style: none;
+        position: relative;
+        cursor: pointer;
+        -moz-transition: 0.2s;
+        -o-transition: 0.2s;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+        -moz-animation: ali-files-container-files-show 0.3s;
+        -o-animation: ali-files-container-files-show 0.3s;
+        -webkit-animation: ali-files-container-files-show 0.3s;
+        animation: ali-files-container-files-show 0.3s;
+
+        > .ali-x-field-icon {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: 8px;
+            left: 6px;
+            -moz-animation: ali-files-container-files-icon-show 0.3s;
+            -o-animation: ali-files-container-files-icon-show 0.3s;
+            -webkit-animation: ali-files-container-files-icon-show 0.3s;
+            animation: ali-files-container-files-icon-show 0.3s;
+
+            path.ali-x-svg-fill, circle.ali-x-svg-fill {
+                fill: rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        > .ali-x-field-name {
+            font-weight: normal;
+        }
+
+        > .ali-x-field-type {
+            display: none;
+        }
+    }
+
+    > li.ali-container-main:hover {
+        background-color: fade(@selectColor, 10);
+        -moz-transition: 0.2s;
+        -o-transition: 0.2s;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+    }
+
+    > li.ali-container-empty {
+        color: #999;
+        padding: 10px 30px;
+        cursor: default;
+        -moz-animation: ali-files-container-files-show 0.6s;
+        -o-animation: ali-files-container-files-show 0.6s;
+        -webkit-animation: ali-files-container-files-show 0.6s;
+        animation: ali-files-container-files-show 0.6s;
+
+        > em {
+            font-style: normal;
+        }
+    }
+}
+
+.ali-controls-files-mdi > ul.ali-container-collection-tabs {
+    width: 100%;
+    height: 34px;
+    background-color: #DDD;
+    padding: 4px 2px 0 2px;
+    margin: 0;
+    border: 0 none transparent;
+    border-bottom: 1px solid white;
+    display: block;
+    list-style: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+
+    > li {
+        color: #444;
+        width: 80px;
+        line-height: 20px;
+        height: 20px;
+        background-color: #F9F9F9;
+        padding: 4px 30px 4px 10px;
+        margin: 0;
+        border: 1px solid #CCC;
+        border-bottom: 0 none transparent;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        white-space: nowrap;
+        display: inline-block;
+        list-style: none;
+        -moz-transition: 0.4s;
+        -o-transition: 0.4s;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        cursor: default;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        position: relative;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+
+        .ali-x-field-name, .ali-x-field-icon {
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        .ali-x-field-icon {
+            line-height: 16px;
+            width: 16px;
+            height: 16px;
+            padding: 2px 0;
+            margin-right: 8px;
+
+            > svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        .ali-x-action-close {
+            color: gray;
+            line-height: 16px;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            position: absolute;
+            display: none;
+            right: 8px;
+            top: 6px;
+
+            > svg {
+                width: 16px;
+                height: 16px;
+
+                path, circle {
+                    fill: gray;
+                }
+            }
+        }
+
+        .ali-x-action-close:hover {
+            color: red;
+
+            path, circle {
+                fill: red;
+            }
+        }
+    }
+
+    > li:hover {
+        width: 100px;
+        padding: 4px 10px 4px 10px;
+
+        .ali-x-action-close {
+            display: inline-block;
+        }
+    }
+
+    > li.ali-state-active-t, > li.ali-state-active-t:hover {
+        color: #222;
+        background-color: white;
+        width: 100px;
+        padding: 4px 30px 4px 10px;
+        -moz-transition: 0.2s;
+        -o-transition: 0.2s;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+
+        .ali-x-action-close {
+            display: inline-block;
+        }
+    }
+}
+
+.ali-controls-files-mdi {
+
+    > div.ali-controls-files-tree {
+
+        > ul.ali-files-container-tree {
+            width: 199px;
+            border-right: 1px solid #DDD;
+            float: left;
+            overflow: auto;
+        }
+
+        > ul.ali-files-container-files {
+            margin-left: 200px;
+            overflow: auto;
+        }
+
+    }
+
+    > .ali-controls-flow-guide {
+        padding: 8px;
+    }
+}
+
+
+@-moz-keyframes ali-controls-flow-submit-show {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes ali-controls-flow-submit-show {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes ali-controls-flow-submit-show {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.ali-controls-files-submit {
+    background-color: white;
+    border: 1px solid rgba(16, 16, 16, 0.2);
+    border-radius: 4px;
+    padding: 0;
+    padding-top: 36px;
+    overflow: hidden;
+    box-shadow: 1px 1px 10px 1px rgba(16, 16, 16, 0.2);
+    -moz-animation: ali-controls-flow-submit-show 0.4s;
+    -o-animation: ali-controls-flow-submit-show 0.4s;
+    -webkit-animation: ali-controls-flow-submit-show 0.4s;
+    animation: ali-controls-flow-submit-show 0.4s;
+
+    > h5 {
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 22px;
+        padding: 8px 10px 6px 10px;
+        margin: 0;
+        cursor: default;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    > textarea {
+        width: 100%;
+        height: 200px;
+        background-color: rgba(200, 200, 200, 0.1);
+        padding: 10px;
+        margin: 0 0 10px 0;
+        border-color: rgba(160, 160, 160, 0.1);
+        border-width: 1px 0;
+        border-style: solid none;
+        outline: 0 none transparent;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    > .ali-x-section-main {
+        padding: 0;
+        margin: 10px;
+    }
+
+    > .ali-x-section-main.ali-x-section-actions {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    > .ali-controls-files-upload {
+        position: relative;
+        margin: 6px;
+
+        > div.ali-container-main {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            left: 10px;
+        }
+
+        > ul.ali-container-main {
+            padding-top: 30px;
+        }
+
+        > ul.ali-container-main > li {
+            background-color: transparent;
+            vertical-align: top;
+            width: 320px;
+            height: 40px;
+            padding: 6px 10px;
+            margin: 4px;
+            border: 1px solid rgba(160, 160, 160, 0.1);
+            border-radius: 2px;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            -moz-box-sizing: content-box;
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+
+            > span {
+                line-height: 20px;
+                height: 20px;
+                display: block;
+            }
+
+            > em {
+                line-height: 20px;
+                height: 20px;
+                display: block;
+            }
+
+            > button {
+                color: gray;
+                min-width: 4px;
+                display: block;
+                outline: 0 none transparent;
+                position: absolute;
+                top: 8px;
+                right: 8px;
+            }
+
+            > button:hover {
+                color: red;
+            }
+        }
+    }
+
+    button {
+        color: #333;
+        text-align: center;
+        line-height: 22px;
+        min-width: 40px;
+        background-color: transparent;
+        padding: 0 10px;
+        margin: 0 8px 0 0;
+        border: 1px solid #999;
+        border-radius: 4px;
+        cursor: pointer;
+        outline: 0 none transparent;
+        -moz-transition: 0.6s;
+        -o-transition: 0.6s;
+        -webkit-transition: 0.6s;
+        transition: 0.6s;
+        -moz-box-sizing: content-box;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+
+    button:hover {
+        color: @selectColor;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-color: @selectColor;
+        -moz-transition: 0.2s;
+        -o-transition: 0.2s;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+    }
+
+    button.ali-x-action-submit {
+        color: white;
+        min-width: 40px;
+        background-color: @selectColor;
+        border-color: @selectColor;
+        -moz-transition: 0.4s;
+        -o-transition: 0.4s;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+    button.ali-x-action-submit:hover {
+        background-color: fade(@selectColor, 80);
+        -moz-transition: 0.2s;
+        -o-transition: 0.2s;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+    }
+}

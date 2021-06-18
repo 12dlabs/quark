@@ -1,0 +1,68 @@
+<h1>Go through (for Type Script)</h1>
+<p>
+    Let's start to build a page to show a simple page here. We use Modulex as asynchronous modules loader for example.
+    And you can download <a href="//nine.alibaba.net/libs/quark/scripts/index.d.ts" type="text/typescript" target="_blank">Quark typed definition file</a> for your project reference.
+</p>
+</p>
+<p>
+    Firstly, creates a page with following HTML code. This page should contain following script files.
+</p>
+<ul>
+    <li>Modulex seed and adapter</li>
+</ul>
+<code>
+    &lt;!DOCTYPE html&gt;<br />
+    &lt;html&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;head&gt;<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;title&gt;Sample&lt;/title&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;script src=&quot;https://g.alicdn.com/hi/modulex/5.0.0/seed-debug.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;script src=&quot;https://g.alicdn.com/hi/quark/1.8.1000/index.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;script type=&quot;text/javascript&quot;&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;!--<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AliHub.Runtime.ModulexLoader.addModule(&quot;local&quot;, &quot;./&quot;);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modulex.use(&quot;local/demo&quot;, function (d) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var form = d.form(&quot;page_demo&quot;);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //--&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/script&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;body&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div id=&quot;page_demo&quot;&gt;&lt;/div&gt;<br />
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;<br />
+&lt;/html&gt; </code>
+<p>
+    Now, we have prepared all files used to load our library.
+    Following are the scripts which we need implement the business logic.
+    A Type Script file demo.js is needed.
+    Firstly, we want to implement a panel to show a customized information, such as a form.
+    We add code into the coding scope in demo.js file.
+</p>
+<code>
+// Form generator.<br />
+    export function form(id) {<br />
+    &nbsp;&nbsp;&nbsp; var c = new AliHub.Common.BindingControl(id);<br />
+    &nbsp;&nbsp;&nbsp; c.viewModel({ id: &quot;001&quot;, nick: &quot;Kingcean&quot; });<br />
+    &nbsp;&nbsp;&nbsp; c.setTemplate(&quot;ajax&quot;, &quot;form.htm&quot;);<br />
+    &nbsp;&nbsp;&nbsp; return c;<br />
+    }&nbsp;
+</code>
+<p>
+    Then, we create form.htm file to fill view template.
+</p>
+<code>
+    &lt;div id=&quot;__<span>view_control</span>_c_name&quot; data-bind=&quot;if: model()&quot;&gt;<br />
+    &nbsp;&nbsp;&nbsp; &lt;span&gt;ID &lt;/span&gt;<br />
+    &nbsp;&nbsp;&nbsp; &lt;input data-bind=&quot;value: model().id&quot; /&gt;<br />
+    &lt;/div&gt;
+    <br />
+    &lt;div id=&quot;__<span>view_control</span>_c_bio&quot; data-bind=&quot;if: model()&quot;&gt;<br />
+    &nbsp;&nbsp;&nbsp; &lt;span&gt;Nickname &lt;/span&gt;<br />
+    &nbsp;&nbsp;&nbsp; &lt;input data-bind=&quot;value: model().nick&quot; /&gt;<br />
+    &lt;/div&gt;
+</code>
+<p>
+    And it works now.
+</p>
+<p></p>

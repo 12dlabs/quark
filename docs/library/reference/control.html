@@ -1,0 +1,133 @@
+﻿<h1>
+    What is a control?
+</h1>
+<p>
+    Control is a basic component for rendering some data and providing interaction to user.
+    It is a kind of rich web part with one or more elements.
+    It provides a way to control its lifecycle.
+    And you can build them anywhere in the page body.
+</p>
+<p>
+    To initialize a control, an existing DOM is required to bind.
+    An optional option is used to set settings.
+    Some controls support web component.
+    You can initialize them by inserting the element with the tag name in any place of body.
+    You can also fill some template parts in the element.
+    The option or its generator function can be set as the field <code data-mine="word">control-options</code>.
+    The control will load these template parts and the option automatically.
+</p>
+<p>
+    Because of design difference, different control has its own way create instance.
+    But usually, a control is a class so that you can just need initialize it by <code data-mine="word">new</code> keyword,
+    and fill an argument that is a binding element or its ID to the constructor.
+    Later, you can call its <code data-mine="word">loadOptions(option)</code> member method to set options.
+    Almost all of controls are extended from <code>AliHub.Common.VisualControl</code> class which will be introduced later.
+</p>
+<h2>
+    Factory
+</h2>
+<p>
+    You can use following <code data-mine="word">AliHub.Common.fillControl(element, type, options)</code> function to create a control.
+    It will initialize an instance of that control class with the given element and load options.
+    The control instance will be returned to you.
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">namespace</span> <span class="ali-x-code-namespace">AliHub.Common</span> {<br />
+    &nbsp; &nbsp; <span class="ali-x-code-keyword">export function</span> <span class="ali-x-code-function">fillControl</span>&lt;T extends <span class="ali-x-code-namespace">Common</span>.<span class="ali-x-code-class">VisualControl</span>&gt; (<br />
+    &nbsp; &nbsp; &nbsp; &nbsp; element: <span class="ali-x-code-interface">HTMLElement</span> | <span class="ali-x-code-keyword">string</span>,<br />
+    &nbsp; &nbsp; &nbsp; &nbsp; type: <span class="ali-x-code-keyword">string</span> | <span class="ali-x-code-keyword">typeof</span> <span class="ali-x-code-namespace">Common</span>.<span class="ali-x-code-class">VisualControl</span>,<br />
+    &nbsp; &nbsp; &nbsp; &nbsp; options?: <span class="ali-x-code-interface">VisualControlOptionsContract</span>&lt;T&gt; | <span class="ali-x-code-keyword">boolean</span><br />
+    &nbsp; &nbsp; ): T { };<br />
+    }
+</div>
+<p>
+    Following are the arguments.
+</p>
+<ul>
+    <li>
+        <code>element</code><br />
+        The element to bind.
+    </li>
+    <li>
+        <code>type</code><br />
+        The control type.
+    </li>
+    <li>
+        <code>options</code><br />
+        The visual control options for initializing. See comment documentation of <code>VisualControlOptionsContract</code>.<br />
+        Or <code>true</code> to read from attribute <code>control-options</code> in the DOM bound.
+    </li>
+</ul>
+<p>
+    To load <code>options</code> from DOM the bound, you can just set an attribute <code>control-options</code>.
+    The value should be one of following.
+</p>
+<ul>
+    <li>
+        The options object to load.
+    </li>
+    <li>
+        A function to return the options object.
+        The function can have an argument that will be filled as the control itself.
+    </li>
+</ul>
+<h2>
+    Web component
+</h2>
+<p>
+    For the controls with web component supports,
+    you can initialize them by inserting the DOM directly.
+</p>
+<section data-code-control="namespace: 'AliHub.Common', name: 'VisualControl', tagName: 'quark-visual', options: 'VisualControlOptionsContract', hideOptions: true">
+    <div data-key="intro">
+        Visual control is the basic control and base class of other controls.
+        It provides rendering, child items management, binding properties and other functionalities.
+    </div>
+    <p key="loading">
+        <em>Loading content...</em>
+    </p>
+</section>
+<h2>
+    Options information
+</h2>
+<code>
+    // Visual control options.<br />
+    // namespace: AliHub.Common.<br />
+    interface VisualControlOptionsContract&lt;T extends VisualControl&gt; {<br />
+    <br />
+    &nbsp; &nbsp; // Style references.<br />
+    &nbsp; &nbsp; styleRef?: string[] | string;<br />
+    <br />
+    &nbsp; &nbsp; // Occurs during initializing.<br />
+    &nbsp; &nbsp; preInit?: Action1&lt;T&gt;;<br />
+    <br />
+    &nbsp; &nbsp; // A value indicating whether deny to load template parts automatically.<br />
+    &nbsp; &nbsp; ignoreParts?: boolean;<br />
+    <br />
+    &nbsp; &nbsp; // Element attributes.<br />
+    &nbsp; &nbsp; attr?: any;<br />
+    }&nbsp;
+</code>
+<p>
+    Most of other control options are extended from this.
+</p>
+<h2>
+    Samples
+</h2>
+<p>
+    Creates a visual control is very simple.
+    Suppose we have a <code>DIV</code> element existed with HTML <code data-mine="word">&lt;div id=&quot;demo_container&quot;&gt;&lt;/div&gt;</code>.
+</p>
+<code>
+    // Creates a visual control to fill in the specific element.<br />
+    var control = new VisualControl("demo_container");
+    <br />
+    <br />
+    // Appends an element there and sets its content.<br />
+    var cnt = control.appendElement(&quot;div&quot;);<br />
+    cnt.innerHTML = &quot;It works well!&quot;;
+</code>
+<p>
+    The variable object <code>control</code> is the instance of class <code>VisualControl</code>.
+</p>
+<p></p>

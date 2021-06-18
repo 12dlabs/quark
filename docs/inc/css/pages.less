@@ -1,0 +1,184 @@
+﻿/*  --------------------
+ *  Page style - Quark
+ *  (c) Kingcean Tuan, 2014.
+ *
+ *  File  pages.css
+ *  Description  Page CSS.
+ *  Owner  Kingcean Tuan <kingcean@live.com>
+ *  --------------------  */
+
+@charset "utf-8";
+
+.user-select-none() {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.user-select-element() {
+    -moz-user-select: element;
+    -webkit-user-select: text;
+    -ms-user-select: element;
+    user-select: element;
+}
+
+.ali-page body.ali-page-l-show {
+    color: #CCC;
+    background-color: #333;
+}
+
+body.ali-page-l-show {
+    color: #CCC;
+    background-color: #222;
+
+    a, .ali-app-hub-home-site .ali-page-l-show a:visited {
+        color: rgb(36, 160, 255);
+    }
+
+    a:hover {
+        color: rgb(255, 160, 0);
+    }
+    
+    a:active {
+        color: white;
+    }
+    
+    #ali_head {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+    
+    #ali_head_title a {
+        color: rgb(36, 160, 255);
+        .user-select-none();
+    }
+
+    ul#ali_head_menu > li a,
+    ul#ali_head_menu > li a:visited,
+    ul#ali_head_user > li a,
+    ul#ali_head_user > li a:visited {
+        color: #CCC;
+        .user-select-none();
+    }
+
+    ul#ali_head_menu > li a:hover,
+    ul#ali_head_user > li a:hover {
+        color: rgb(36, 160, 255);
+    }
+
+    ul#ali_head_menu > li.ali-state-active-t.ali-container-menu {
+        background-color: rgba(80, 80, 80, 0.6);
+    }
+
+    .ali-panel-split-len-2.ali-panel-split-t-page > table > tbody > tr > td:first-child {
+        border-right-color: #444;
+    }
+
+    .ali-panel-split-len-2.ali-panel-split-t-page > table > tbody > tr > td:first-child > div.ali-container-main > div {
+        color: #666;
+        .user-select-none();
+    }
+
+    .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbody > tr > td:first-child > div.ali-container-main > ul > li {
+        color: #CCC;
+        .user-select-none();
+    }
+    .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbody > tr > td:first-child > div.ali-container-main > ul > li:hover {
+        color: rgb(36, 160, 255);
+        background-color: rgba(120, 120, 120, 0.2);
+    }
+
+    .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbody > tr > td.ali-container-main > div.ali-container-main > code,
+    .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbody > tr > td.ali-container-main > div.ali-container-main > section > code {
+        background: rgba(120, 120, 120, 0.1);
+    }
+
+    .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbody > tr > td.ali-container-main > div.ali-container-main > code > code {
+        display: block;
+    }
+
+    .ali-panel-split-len-2.ali-panel-split-t-page > table > tbody > tr > td.ali-container-main > div.ali-container-main > code.ali-panel-code-customized,
+    .ali-panel-code-customized {
+        padding: 0;
+        display: block;
+    }
+
+    .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbody > tr > td.ali-container-main > div.ali-container-main > .ali-x-section-code,
+    .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbody > tr > td.ali-container-main > div.ali-container-main > section > .ali-x-section-code {
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border: 1px solid rgba(128, 128, 128, 0.2);
+        border-radius: 4px;
+        display: block;
+    }
+
+    .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbody > tr > td.ali-container-main > div.ali-container-main > .ali-x-section-code:hover,
+    .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbody > tr > td.ali-container-main > div.ali-container-main > section > .ali-x-section-code:hover {
+        border: 1px solid rgba(128, 128, 128, 0.3);
+    }
+
+    .ali-x-section-code, code {
+        color: #DDD;
+        font-family: monospace;
+
+        .ali-x-code-comment {
+            color: green;
+        }
+
+        .ali-x-code-string {
+            color: salmon;
+        }
+
+        .ali-x-code-tagname,
+        .ali-x-code-keyword {
+            color: dodgerblue;
+        }
+
+        .ali-x-code-attr {
+            color: skyblue;
+        }
+
+        .ali-x-code-class,
+        .ali-x-code-number {
+            color: lightseagreen;
+        }
+
+        .ali-x-code-enum,
+        .ali-x-code-interface {
+            color: lightgreen;
+        }
+
+        .ali-x-code-namespace {
+            color: skyblue;
+        }
+
+        .ali-x-code-function {
+        }
+
+        .ali-x-code-bind {
+            color: fuchsia;
+        }
+
+        .ali-x-code-unknown {
+            color: #AAA;
+        }
+
+        div.ali-x-code-unknown {
+            padding-left: 60px;
+        }
+    }
+
+    h1::selection,
+    h2::selection,
+    h3::selection,
+    h4::selection {
+        background-color: rgba(128, 128, 128, 0.3);
+    }
+
+    .ali-x-section-code::selection,
+    .ali-x-section-code > *::selection,
+    .ali-x-section-code > * > *::selection,
+    .ali-x-section-code > * > * > *::selection {
+        background-color: rgba(128, 128, 128, 0.3);
+    }
+}

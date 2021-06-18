@@ -1,0 +1,27 @@
+﻿{
+  "success": true,
+  "data": {
+    "duration": [
+      {
+        "begin": {
+          "year": 2015,
+          "month": 0
+        },
+        "end": {
+          "year": 2015,
+          "month": 10
+        }
+      },
+      {
+        "begin": {
+          "year": 2016,
+          "month": 0
+        },
+        "end": {
+          "year": 2016,
+          "month": 10
+        }
+      }
+    ]
+  }
+}

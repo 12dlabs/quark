@@ -1,0 +1,62 @@
+﻿<section data-code-control="namespace: 'AliHub.Collection', name: 'ListControl<T>', tagName: 'quark-list', options: 'ListControlOptionsContract<T>', optionsSample: {
+            areSame: 'id',
+            isBefore: 'created',
+            webData: {
+                subject: '**$this**',
+                key: 'list',
+                propertyKey: 'list'
+            }
+        }, urlsSample: {
+            list: 'http://quark.alibaba.net/api/sample/asset/list.json'
+        }">
+    <div key="intro">
+        You can render a maintainable list with additional sorting, grouping, entry validation and other powerful functionalities.
+        The entry item and group title support MVVM mode.
+        The advanced data resolving service and data mapping are built-in for providing quick web data accessing.
+    </div>
+    <div key="templstrings" style="display: none;">
+        &nbsp; &nbsp; &lt;<span class="ali-x-code-tagname">part</span> <span class="ali-x-code-attr">data-key</span>=<span class="ali-x-code-string">&quot;header&quot;</span>&gt;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &lt;<span class="ali-x-code-tagname">div</span> <span class="ali-x-code-attr">id</span>=<span class="ali-x-code-string">&quot;__<span>view_control</span>_container&quot;</span> <span class="ali-x-code-attr">data-bind</span>=&quot;if: info()&quot;&gt;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;<span class="ali-x-code-tagname">em</span> <span class="ali-x-code-attr">data-bind</span>=&quot;text: hub().Common.<span class="ali-x-code-class">DateTime</span>.toCustomizedString(info().firstItem.model.created, <span class="ali-x-code-string">'localedate'</span>)&quot;&gt;&lt;/<span class="ali-x-code-tagname">em</span>&gt;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &lt;/<span class="ali-x-code-tagname">div</span>&gt;<br />
+        &nbsp; &nbsp; &lt;/<span class="ali-x-code-tagname">part</span>&gt;<br />
+        &nbsp; &nbsp; &lt;<span class="ali-x-code-tagname">part</span> <span class="ali-x-code-attr">data-key</span>=<span class="ali-x-code-string">&quot;item&quot;</span>&gt;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &lt;<span class="ali-x-code-tagname">div</span> <span class="ali-x-code-attr">id</span>=<span class="ali-x-code-string">&quot;__<span>view_control</span>_container&quot;</span> <span class="ali-x-code-attr">data-bind</span>=&quot;if: model()&quot;&gt;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;<span class="ali-x-code-tagname">span</span> <span class="ali-x-code-attr">data-bind</span>=&quot;text: model().name, attr: { title: model().id }&quot;&gt;&lt;/<span class="ali-x-code-tagname">span</span>&gt;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;<span class="ali-x-code-tagname">span</span> <span class="ali-x-code-attr">data-bind</span>=&quot;text: hub().Common.<span class="ali-x-code-class">DateTime</span>.toCustomizedString(model().created, <span class="ali-x-code-string">'localetime'</span>)&quot;&gt;&lt;/<span class="ali-x-code-tagname">span</span>&gt;<br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &lt;/<span class="ali-x-code-tagname">div</span>&gt<br />
+        &nbsp; &nbsp; &lt;/<span class="ali-x-code-tagname">part</span>&gt;
+    </div>
+    <p key="loading">
+        <em>Loading content...</em>
+    </p>
+</section>
+<h2>
+    Samples
+</h2>
+<code>
+    // Creates a list control.<br />
+    var control = AliHub.Common.listControl(<br />
+&nbsp;&nbsp;&nbsp; &quot;demo_container&quot;,&nbsp;&nbsp;&nbsp; // Container element ID.<br />
+&nbsp;&nbsp;&nbsp; null,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Parent control if has.<br />
+&nbsp;&nbsp;&nbsp; {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Options.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;areSame&quot;: &quot;id&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;isBefore&quot;: &quot;created&quot;,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &quot;itemTemplate&quot;: itemTempl<br />
+&nbsp;&nbsp;&nbsp; }<br />
+    );<br />
+    <br />
+    // Loads data via AJAX or JSONP. See related documentation of this website or its comments.<br />
+    // pushResource is a method to push a set of collections,<br />
+    // but only the list of which property is named by the specific one will be used for push range.<br />
+    // pushResourceFromWeb is the method to load data by GET or JSONP to call pushResource.<br />
+    // The 3rd parameter is the property name for property to push range the list.<br />
+    control.pushResourceFromWeb(&quot;sample&quot;, &quot;asset&quot;, &quot;list&quot;);<br />
+    <br />
+    // Clears the list.<br />
+    control.clear();
+</code>
+<p>
+    The variable object <code>control</code> is the instance of class <code>ListControl&lt;T&gt;</code>.
+</p>
+<p></p>

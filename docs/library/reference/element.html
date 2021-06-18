@@ -1,0 +1,236 @@
+﻿<h1>
+    Element utilities
+</h1>
+<p>
+    The utilities provide lots of functions for element including DOM and page.
+    They are under <code data-mine="word">AliHub.Elements</code> namespace.
+    See comment documentation for details.
+</p>
+<h3>
+    Position and size
+</h3>
+<code>
+    // Gets the position of the specific element in document.<br />
+    export function getPosition(<br />
+    &nbsp; &nbsp; element: string | HTMLElement | Common.VisualControl<br />
+    ): Common.PlaneCoordinate<br />
+    <br />
+    // Gets the position of the mouse in specific element or document.<br />
+    export function getMousePosition(<br />
+    &nbsp; &nbsp; element?: string | HTMLElement | Common.VisualControl<br />
+    ): Common.PlaneCoordinate<br />
+    <br />
+    // Gets the size of specific element.<br />
+    export function getSize(<br />
+    &nbsp; &nbsp; element?: HTMLElement | Window | Document | Common.VisualControl<br />
+    ): Common.PlaneCoordinate {}<br />
+    <br />
+    // Adapts the height size of given element, window or static number.<br />
+    // null for clear adaption.<br />
+    export function adaptHeight(<br />
+    &nbsp; &nbsp; element: HTMLElement[] | HTMLElement,<br />
+    &nbsp; &nbsp; target?: HTMLElement | Window | number,<br />
+    &nbsp; &nbsp; compute?: Common.Func1&lt;number, number&gt;<br />
+    ) {}<br />
+    <br />
+    // Adapts the width size of given element, window or static number.<br />
+    // null for clear adaption.<br />
+    export function adaptWidth(<br />
+    &nbsp; &nbsp; element: HTMLElement[] | HTMLElement,<br />
+    &nbsp; &nbsp; target?: HTMLElement | Window | number,<br />
+    &nbsp; &nbsp; compute?: Common.Func1&lt;number, number&gt;<br />
+    ) {}
+</code>
+<h3>
+    DOM accessing
+</h3>
+<code>
+    // Gets specific HTML element.<br />
+    export function getById&lt;T extends HTMLElement&gt;(<br />
+    &nbsp; &nbsp; element: string | HTMLElement | Common.VisualControl | Document | Window,<br />
+    &nbsp; &nbsp; ...appendingIdParts: string[]<br />
+    ): T {}<br />
+    <br />
+    // Changes style references and resolves the list all.<br />
+    export function changeStyleRef(<br />
+    &nbsp; &nbsp; element: HTMLElement | string, adding: string | string[],<br />
+    &nbsp; &nbsp; removing?: string | string[]<br />
+    ): string[] {}<br />
+    <br />
+    /**<br />
+    &nbsp; * Gets the specific string object of an element.<br />
+    &nbsp; * @param element  the element to get attribute.<br />
+    &nbsp; * @param name  the attribute name to test one by one.<br />
+    &nbsp; */<br />
+    export function getAttr(<br />
+    &nbsp; &nbsp; element: AnyElementReference,<br />
+    &nbsp; &nbsp; name: string | string[]<br />
+    ): string {}<br />
+    <br />
+    /**<br />
+    &nbsp; * Gets the specific attribute object of an element.<br />
+    &nbsp; * @param element  the element to get attribute.<br />
+    &nbsp; * @param name  the attribute name.<br />
+    &nbsp; * @param dataPrefix  a value indicating whether use "data-" prefix for optional.<br />
+    &nbsp; */<br />
+    export function parseAttr&lt;T&gt;
+    (<br />
+    &nbsp; &nbsp; element: AnyElementReference,<br />
+    &nbsp; &nbsp; name: string,<br />
+    &nbsp; &nbsp; dataPrefix = false<br />
+    ): T {}<br />
+    <br />
+    // Adds an event handler to a target element.<br />
+    export function listen(<br />
+    &nbsp; &nbsp; element: Element | Window | Document | Worker | Common.VisualControl,<br />
+    &nbsp; &nbsp; eventType: string,<br />
+    &nbsp; &nbsp; h: (ev: Event) =&gt; void<br />
+    ): Common.DisposableContract {}<br />
+    <br />
+    /**<br />
+    &nbsp; * Listens attributes changes of a specific element to an object.<br />
+    &nbsp; * @param element  the element to get attribute.<br />
+    &nbsp; * @param name  the attribute name.<br />
+    &nbsp; * @param obj  the object to bind.<br />
+    &nbsp; * @param ignoreUndefined  a value indicating whether need ignore undefined.<br />
+    &nbsp; * @param dataPrefix  a value indicating whether use "data-" prefix for optional.<br />
+    &nbsp; */<br />
+    export function listenAttr(<br />
+    &nbsp; &nbsp; element: AnyElementReference,<br />
+    &nbsp; &nbsp; name: string | string[],<br />
+    &nbsp; &nbsp; obj: any,<br />
+    &nbsp; &nbsp; ignoreUndefined = false,<br />
+    &nbsp; &nbsp; dataPrefix = false<br />
+    ): Common.DisposableContract {}
+</code>
+<h3>
+    Mouse, keyboard, scroll and touch
+</h3>
+<code>
+    // Adds gesture handlers.<br />
+    export function addGesture(<br />
+    &nbsp; &nbsp; element: HTMLElement | Window | Document,<br />
+    &nbsp; &nbsp; options: GestureActionOptionsContruct<br />
+    ): Common.DisposableContract {}<br />
+    <br />
+    // Adds an event handler for clicking or tapping.<br />
+    export function onClick(<br />
+    &nbsp; &nbsp; element: Element | Window | Worker,<br />
+    &nbsp; &nbsp; options: ClickOptionsContract<br />
+    ): Common.DisposableContract {}<br />
+    <br />
+    // Adds a shortcut key for given element.<br />
+    export function shortcutKey(<br />
+    &nbsp; &nbsp; element: Element | Window | Document | Worker | Common.VisualControl,<br />
+    &nbsp; &nbsp; options: ShortcutKeyOptionsContract<br />
+    ): void {}<br />
+    <br />
+    // Gets coordinate information for scrolling.<br />
+    export function getScroll(): Common.PlaneCoordinate {}<br />
+    <br />
+    // Listens page scrolling down event.<br />
+    // This is very useful to implement the auto loading for a list by scrolling down.<br />
+    export function listenScroll(<br />
+    &nbsp; &nbsp; options: ScrollListenerOptionsContract<br />
+    ) {}
+</code>
+<p>
+    Following is a sample for using.
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">var</span> qEle = AliHub.Elements;<br />
+    <br />
+    <span class="ali-x-code-comment">// Bind a click event handler to an element. Suppose there is a DOM &lt;div id=&quot;idOrElementOfTheDomToBind&quot;&gt;&lt;/div&gt; in the page.</span><br />
+    <span class="ali-x-code-comment">// See <a href="http://12d.alibaba.net/p/home/?id=hit" target="_blank">12D Labs</a> for live demo.</span><br />
+    qEle.onClick(<span class="ali-x-code-string">&quot;idOrElementOfTheDomToBind&quot;</span>, {<br />
+    &nbsp; &nbsp; start: <span class="ali-x-code-number">3</span>, <span class="ali-x-code-comment">// The count clicked to occur specific handler at least.</span><br />
+    &nbsp; &nbsp; count: <span class="ali-x-code-number">100</span>, <span class="ali-x-code-comment">// The count to allow occur at most.</span><br />
+    &nbsp; &nbsp; span: <span class="ali-x-code-number">400</span>, <span class="ali-x-code-comment">// The time span in millisecond between two clicks at most.</span><br />
+    &nbsp; &nbsp; process: <span class="ali-x-code-keyword">function</span> (event, count, options) { <span class="ali-x-code-comment">// A handler to occur.</span><br />
+    &nbsp; &nbsp; &nbsp; &nbsp; <span class="ali-x-code-comment">// event is the MouseEvent.</span><br />
+    &nbsp; &nbsp; &nbsp; &nbsp; <span class="ali-x-code-comment">// count is the count clicked currently now.</span><br />
+    &nbsp; &nbsp; &nbsp; &nbsp; <span class="ali-x-code-comment">// options is the object of this.</span><br /><br />
+    &nbsp; &nbsp; &nbsp; &nbsp; <span class="ali-x-code-comment">// This is an example to log something.</span><br />
+    &nbsp; &nbsp; &nbsp; &nbsp; console.log("Clicked " + (count + 1).toString() + "times.");<br />
+    &nbsp; &nbsp; }<br />
+    });
+</div>
+<h3>
+    String
+</h3>
+<code>
+    // Sanitizes a specific HTML part to text string.<br />
+    export function sanitizeHTML(<br />
+    &nbsp; &nbsp; htmlString: string,<br />
+    &nbsp; &nbsp; emptyForNull = false<br />
+    ): string {}
+</code>
+<h3>
+    URL
+</h3>
+<code>
+    // Gets query information collection from URL.<br />
+    export function getQueryInfo()<br />
+    &nbsp; &nbsp;: Collection.StringPropertiesContract {}<br />
+    <br />
+    // Gets query property by given name from URL.<br />
+    export function getQuery(<br />
+    &nbsp; &nbsp; name: string | number<br />
+    ): string {}<br />
+    <br />
+    // Gets full query string for URL.<br />
+    export function toQueryString(<br />
+    &nbsp; &nbsp; value: Collection.StringPropertiesContract<br />
+    ): string {}<br />
+    <br />
+    // Gets page address without query and hash.<br />
+    export function getPageAddress(): string {}
+</code>
+<h3>
+    Popup
+</h3>
+<code>
+    // Pops up a dialog.<br />
+    export function popup(<br />
+    &nbsp; &nbsp; model: PeripheralPopupContract<br />
+    ): HTMLDivElement
+</code>
+<p>
+    Following is a sample for using.
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">var</span> qEle = AliHub.Elements;<br />
+    <br />
+    <span class="ali-x-code-comment">// Pops up a panel to show something.</span><br />
+    <span class="ali-x-code-comment">// PeripheralOrientations: Top = 1, Right = 2, Bottom = 3, Left = 4.</span><br />
+    qEle.popup({<br />
+    &nbsp; &nbsp; orientation: qEle.PeripheralOrientations.<span class="ali-x-code-number">Bottom</span>,<br />
+    &nbsp; &nbsp; render: <span class="ali-x-code-keyword">function</span> (info) {<br />
+    &nbsp; &nbsp; &nbsp; &nbsp; <span class="ali-x-code-keyword">var</span> container = info.container().innerHTML("Greetings!");<br />
+    &nbsp; &nbsp; }<br />
+    });
+</div>
+<h3>
+    Form
+</h3>
+<code>
+    // Creates a hidden form.<br />
+    export function hiddenForm(<br />
+    &nbsp; &nbsp; url?: string,<br />
+    ): HiddenFormContract {}
+</code>
+<p>
+    To send data or file to cross-domain service, you can use <code data-mine="word">hiddenForm</code> function to help you implement it.
+    See <a href="http://12d.alibaba.net/p/home/?id=upload" target="_blank">demo</a> for details.
+</p>
+<h3>
+    Web component
+</h3>
+<code>
+    // Registers a specific type of control to web component.<br />
+    export function register(<br />
+    &nbsp; &nbsp; name: string,<br />
+    &nbsp; &nbsp; control: typeof Common.VisualControl<br />
+    ): any {}
+</code>
+<p></p>

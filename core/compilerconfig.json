@@ -1,0 +1,13 @@
+﻿[
+  {
+    "outputFile": "src/css/common.css",
+    "inputFile": "src/css/common.less",
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "outputFile": "demo/css/demo.css",
+    "inputFile": "demo/css/demo.less"
+  }
+]

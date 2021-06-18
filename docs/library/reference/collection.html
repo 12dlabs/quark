@@ -1,0 +1,142 @@
+﻿<h1>Collection utilities</h1>
+<p>
+    The utilities for collection and set provide lots of functions to access, convert and test a specific list.
+    They are under <code data-mine="word">AliHub.Collection</code> namespace.
+    See comment documentation for details.
+</p>
+<h3>
+    Basic array operations
+</h3>
+<p>
+    You can convert to, find in or modify an array by any of following ways.
+</p>
+<code>
+    // Gets an array by given item or array.<br />
+    // This is used to work as a part of the processing logic<br />
+    // that need support both single item or an array.<br />
+    export function toArray&lt;T&gt;(<br />
+    &nbsp; &nbsp; value: T | T[],<br />
+    &nbsp; &nbsp; emptyForNull = true<br />
+    ): T[] {}<br />
+    <br />
+    // Checks if the specific object is an array.<br />
+    export function isArray(col: any): col is any[] {}<br />
+    <br />
+    // Checks whether a specific list contains a test item.<br />
+    export function contains&lt;T1, T2&gt;(list: T1[],<br />
+    &nbsp; &nbsp; testItem: T2,<br />
+    &nbsp; &nbsp; compare?: Common.Func2&lt;T1, T2, boolean&gt;<br />
+    ): boolean {}<br />
+    <br />
+    // Gets the index of a test item in a specific list.<br />
+    export function indexOf&lt;T1, T2&gt;(<br />
+    &nbsp; &nbsp; list: T1[],<br />
+    &nbsp; &nbsp; testItem: T2,<br />
+    &nbsp; &nbsp; compare?: Common.Func2&lt;T1, T2, boolean&gt;<br />
+    ): number {}<br />
+    <br />
+    // Gets the element of a test item in a specific list.<br />
+    export function getItem&lt;T1, T2&gt;(<br />
+    &nbsp; &nbsp; list: T1[],<br />
+    &nbsp; &nbsp; testItem: T2,<br />
+    &nbsp; &nbsp; compare?: Common.Func2&lt;T1, T2, boolean&gt;<br />
+    ): T1 {}<br />
+    <br />
+    // Copies a list.<br />
+    export function copy&lt;T&gt;(list: T[]): T[] {}<br />
+    <br />
+    // Adds a list to target list one.<br />
+    export function pushRange(<br />
+    &nbsp; &nbsp; list: any[],<br />
+    &nbsp; &nbsp; adding: any[],<br />
+    &nbsp; &nbsp; nullCheck = false<br />
+    ): any[] {}<br />
+    <br />
+    // Removes a number of items from a target list.<br />
+    export function remove(<br />
+    &nbsp; &nbsp; list: any[],<br />
+    &nbsp; &nbsp; removing: any[],<br />
+    &nbsp; &nbsp; changeRaw = false,<br />
+    &nbsp; &nbsp; compare: Common.Func2&lt;any, any, boolean&gt; = null<br />
+    ): any[] {}<br />
+    <br />
+    // Formats a list.<br />
+    export function formatList&lt;T&gt;(<br />
+    &nbsp; &nbsp; col: T[],<br />
+    &nbsp; &nbsp; format: AliHub.Common.Func1&lt;T, T&gt;<br />
+    ): T[] {}
+</code>
+<h3>
+    String
+</h3>
+<p>
+    You can change the items in a string array. Or do other things about string array.
+</p>
+<code>
+    // Modifies items in a specific list string.<br />
+    export function addItem(<br />
+    &nbsp; &nbsp; raw: string,<br />
+    &nbsp; &nbsp; split: string,<br />
+    &nbsp; &nbsp; addingItems: string | string[],<br />
+    &nbsp; &nbsp; removingItems?: string | string[]<br />
+    ): string {}<br />
+    <br />
+    // Converts to string array.<br />
+    // This is used to work as a part of the processing logic<br />
+    // that need support both single item or an array.<br />
+    export function toStringArray(<br />
+    &nbsp; &nbsp; value: string | string[],<br />
+    &nbsp; &nbsp; emptyForNull = true<br />
+    ): string[] {}<br />
+</code>
+<h3>
+    Key value pairs
+</h3>
+<code>
+    // Removes key value pairs.<br />
+    export function removeKeyValuePair&lt;TKey, TValue&gt;(<br />
+    &nbsp; &nbsp; list: KeyValuePairContract&lt;TKey, TValue&gt;[],<br />
+    &nbsp; &nbsp; removing: TKey[],<br />
+    &nbsp; &nbsp; changeRaw = false<br />
+    ): KeyValuePairContract&lt;TKey, TValue&gt;[] {}<br />
+    <br />
+    // Sets a key value pair.<br />
+    export function setKeyValue&lt;TKey, TValue&gt;(<br />
+    &nbsp; &nbsp; col: KeyValuePairContract&lt;TKey, TValue&gt;[],<br />
+    &nbsp; &nbsp; item: KeyValuePairContract&lt;TKey, TValue&gt;,<br />
+    &nbsp; &nbsp; compare: Common.Func2&lt;TKey, TKey,<br />
+    &nbsp; &nbsp; boolean&gt; = null<br />
+    ): KeyValuePairContract&lt;TKey, TValue&gt;[] {}
+</code>
+<h3>
+    Resources
+</h3>
+<code>
+    // Gets an entry.<br />
+    export function getEntry&lt;T&gt;(<br />
+    &nbsp; &nbsp; col: MappedContract | MappedContract[],<br />
+    &nbsp; &nbsp; reference: Common.ReferenceItemContract<br />
+    ): T {}<br />
+    <br />
+    // Gets a list of entry.<br />
+    export function getEntries&lt;T&gt;(<br />
+    &nbsp; &nbsp; col: MappedContract | MappedContract[],<br />
+    &nbsp; &nbsp; reference: Common.ReferenceItemContract<br />
+    ): T[] {}<br />
+    <br />
+    // Finds the item view in the list.<br />
+    export function findItemView&lt;T&gt;(<br />
+    &nbsp; &nbsp; col: ItemViewContract&lt;T&gt;[],<br />
+    &nbsp; &nbsp; value: T<br />
+    ): ItemViewContract&lt;T&gt; {}
+</code>
+<h3>
+    Binding array
+</h3>
+<code>
+    // Creates a binding array.<br />
+    export function bindingArray&lt;T&gt;(<br />
+    &nbsp; &nbsp; col?: T[]<br />
+    ): Collection.BindingArrayContract&lt;T&gt; {}
+</code>
+<p></p>

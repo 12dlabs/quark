@@ -1,0 +1,66 @@
+﻿<p>
+    There are lots of utilities for observable, task and reflection.
+</p>
+<h1>
+    Binding and observable
+</h1>
+<p>
+    You can create a binding and observable object or array to watch the changes.
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">namespace</span> <span class="ali-x-code-namespace">AliHub.Common</span> {<br />
+    &nbsp; &nbsp; <span class="ali-x-code-keyword">function</span> <span class="ali-x-code-function">bindingObj</span>&lt;T&gt;(value?: T): <span class="ali-x-code-interface">BindingObjectContract&lt;T&gt;</span> {}<br />
+    &nbsp; &nbsp; <span class="ali-x-code-keyword">function</span> <span class="ali-x-code-function">bindingArray</span>&lt;T&gt;(value?: T): <span class="ali-x-code-namespace">Collection</span>.<span class="ali-x-code-interface">BindingArrayContract&lt;T&gt;</span> {}<br />
+    }
+</div>
+<p>
+    See comment documentation of <code data-mine="word">AliHub.Common.bindingObj</code> and <code data-mine="word">AliHub.Common.bindingArray</code> for details.
+</p>
+<h1>
+    Tasks
+</h1>
+<p>
+    Provide a way to manage task. You can get a handler to manage a continuity task.
+</p>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">namespace</span> <span class="ali-x-code-namespace">AliHub.Common</span> {<br />
+    &nbsp; &nbsp; <span class="ali-x-code-keyword">function</span> <span class="ali-x-code-function">getContinuityTask</span>(options: <span class="ali-x-code-interface">ContinuityTaskOptionsContract</span>): <span class="ali-x-code-interface">Action</span> {}<br />
+    }
+</div>
+<p>
+    See comment documentation of <code data-mine="word">AliHub.Common.getContinuityTask</code> and <code data-mine="word">AliHub.Common.ContinuityTaskOptionsContract</code> for details.
+</p>
+<h3>
+    Samples
+</h3>
+<div class="ali-x-section-code">
+    <span class="ali-x-code-keyword">var</span> qCore = AliHub.Common;<br /><br />
+    <span class="ali-x-code-comment">// Creates a function that can handler the task configured by you for continuity task.</span><br />
+    <span class="ali-x-code-comment">// See AliHub.Common.getContinuityTask(options) function for details.</span><br />
+    <span class="ali-x-code-keyword">var</span> hitProc = qCore.getContinuityTask({<br />
+    &nbsp; &nbsp; start: <span class="ali-x-code-number">3</span>, <span class="ali-x-code-comment">// The count clicked to occur specific handler at least.</span><br />
+    &nbsp; &nbsp; count: <span class="ali-x-code-number">100</span>, <span class="ali-x-code-comment">// The count to allow occur at most.</span><br />
+    &nbsp; &nbsp; span: <span class="ali-x-code-number">400</span>, <span class="ali-x-code-comment">// The time span in millisecond between two clicks at most.</span><br />
+    &nbsp; &nbsp; process: <span class="ali-x-code-keyword">function</span> (count, options) { <span class="ali-x-code-comment">// A handler to occur.</span><br />
+    &nbsp; &nbsp; &nbsp; &nbsp; <span class="ali-x-code-comment">// count is the count clicked currently now.</span><br />
+    &nbsp; &nbsp; &nbsp; &nbsp; <span class="ali-x-code-comment">// options is the object of this.</span><br />
+    &nbsp; &nbsp; }<br />
+    });<br /><br />
+    <span class="ali-x-code-comment">// It will return a function so that you can call it anywhere you want to process, such as clicking.</span><br />
+    $(<span class="ali-x-code-string">&quot;#idOrElementOfTheDomToBind&quot;</span>).on(<span class="ali-x-code-string">&quot;click&quot;</span>, function ()<br />
+    &nbsp; &nbsp; hitProc();<br />
+    });
+</div>
+<h1>
+    AliHub.Common.Reflection
+</h1>
+<p>
+    This is a powerful tools to provide lots of functions for reflection.
+</p>
+<h2>
+    Functions
+</h2>
+<p>
+    See comment documentation of <code data-mine="word">AliHub.Common.Reflection</code> for details.
+</p>
+<p></p>

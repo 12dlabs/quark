@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ref>
+  <def name="container">
+    <item name="scripts">scripts</item>
+    <item name="style">css</item>
+  </def>
+  <group name="common">
+    <scripts>
+      <item container="{def:container\scripts}">index.ts</item>
+      <item container="{def:container\scripts}">zh-Hans.ts</item>
+    </scripts>
+    <style>
+      <item container="{def:container\style}">common.css</item>
+    </style>
+  </group>
+</ref>
