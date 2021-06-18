@@ -1,3 +1,3 @@
 # Quark
 
-A framework forked of Project Quark from Alibaba Group.
+A framework forked from Project Quark of Alibaba Group.
