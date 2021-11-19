@@ -100,7 +100,7 @@ body.ali-page-l-show .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbo
 body.ali-page-l-show .ali-x-section-code,
 body.ali-page-l-show code {
   color: #DDD;
-  font-family: monospace;
+  font-family: "Cascadia Code", consolas, monospace;
 }
 body.ali-page-l-show .ali-x-section-code .ali-x-code-comment,
 body.ali-page-l-show code .ali-x-code-comment {

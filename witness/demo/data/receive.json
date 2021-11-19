@@ -1,0 +1,48 @@
+{
+  "success": true,
+  "result": {
+    "summary": [
+      {
+        "fromTarget": "29456BEE-A7DE-434F-8AFC-A949930F198F",
+        "toTarget": "200D7347-E905-44F5-ADD5-6A4899180BE6",
+        "count": 2800,
+        "averageDuration": 10000
+      },
+      {
+        "fromTarget": "44AD9416-D280-43FC-83F5-32BBA9A8556F",
+        "toTarget": "200D7347-E905-44F5-ADD5-6A4899180BE6",
+        "count": 3200,
+        "averageDuration": 10000
+      },
+      {
+        "fromTarget": "29456BEE-A7DE-434F-8AFC-A949930F198F",
+        "toTarget": "B04C9D8B-8179-432A-9631-0D287E5D5F82",
+        "count": 4000,
+        "averageDuration": 10000
+      },
+      {
+        "fromTarget": "EF7D8263-6B8A-46FF-8601-E1395C3F5647",
+        "toTarget": "200D7347-E905-44F5-ADD5-6A4899180BE6",
+        "count": 1700,
+        "averageDuration": 10000
+      },
+      {
+        "toTarget": "7202B807-2EB8-49BB-A5D6-9A88740A27B5",
+        "count": 2500,
+        "averageDuration": 10000
+      },
+      {
+        "fromTarget": "200D7347-E905-44F5-ADD5-6A4899180BE6",
+        "toTarget": "44AD9416-D280-43FC-83F5-32BBA9A8556F",
+        "count": 2900,
+        "averageDuration": 10000
+      },
+      {
+        "fromTarget": "B04C9D8B-8179-432A-9631-0D287E5D5F82",
+        "toTarget": "29456BEE-A7DE-434F-8AFC-A949930F198F",
+        "count": 4100,
+        "averageDuration": 10000
+      }
+    ]
+  }
+}

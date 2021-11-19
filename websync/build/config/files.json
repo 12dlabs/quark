@@ -1,0 +1,12 @@
+﻿{
+    "scripts": [
+        "scripts/index.js",
+        "scripts/kissyLoader.js",
+        "scripts/bindings.js",
+        "scripts/zh-Hans.js",
+        "scripts/injection.js"
+    ],
+    "css": [
+        "css/common.css"
+    ]
+}

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ref>
+  <def name="container">
+    <item name="scripts">scripts</item>
+    <item name="style">css</item>
+  </def>
+  <group name="common">
+    <scripts>
+      <item container="{def:container\scripts}">accorlib.ts</item>
+      <item container="{def:container\scripts}">bindings.ts</item>
+      <item container="{def:container\scripts}">resources.ts</item>
+      <item container="{def:container\scripts}">en.ts</item>
+      <item container="{def:container\scripts}">zh-Hans.ts</item>
+    </scripts>
+    <style>
+      <item container="{def:container\style}">accommon.css</item>
+    </style>
+  </group>
+</ref>

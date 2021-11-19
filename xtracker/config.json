@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "FlowPortal"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-SchedulePortal-76c64829-8322-4f7f-b8fb-7a71bf1411ec;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}

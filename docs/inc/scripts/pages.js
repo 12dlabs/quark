@@ -70,12 +70,6 @@ define(["require", "exports", "./common", "../../libs/quark-panels/scripts/split
                     }, {
                         name: bizcommon.strings("goThrough") + " - Type Script",
                         url: "gothrough-ts"
-                    }, {
-                        name: bizcommon.strings("workWithFlipper"),
-                        url: "Flipper"
-                    }, {
-                        name: bizcommon.strings("releaseNotes"),
-                        url: "versions"
                     }]
             });
             col.push({
@@ -170,25 +164,9 @@ define(["require", "exports", "./common", "../../libs/quark-panels/scripts/split
     function menu() {
         return [
             {
-                id: "iris",
-                name: "Iris",
-                url: "http://iris.alibaba.net"
-            }, {
-                id: "labs",
-                name: bizcommon.strings("tdlabs"),
-                url: "http://12d.alibaba.net"
-            }, {
-                id: "ape",
-                name: bizcommon.strings("ape"),
-                url: "http://ape.alibaba.net"
-            }, {
                 id: "quark",
                 name: "Quark",
                 url: "../../library/reference/"
-            }, {
-                id: "ref",
-                name: bizcommon.strings("oref"),
-                url: "http://hub.alibaba.net/p/ref/"
             }
         ];
     }
@@ -207,13 +185,12 @@ define(["require", "exports", "./common", "../../libs/quark-panels/scripts/split
       * Sets up the page.
       */
     function setup(id, path) {
-        if (AliHub.Diagnostics.tracker().config) AliHub.Diagnostics.tracker().config("url", "http://fgt.quark.online.desktop");
         var split = splitlib.splitPage(id, {
             freeload: true,
             leftMenu: new MenuCollection(),
             path: path,
             searchProvider: searchProvider,
-            homeInfo: { name: "RDC", url: splitlib.getPath("~/library/reference/") },
+            homeInfo: { name: "12D Labs", url: "https://12dlabs.github.io" },
             pageMenu: menu,
             splitPanel: splitlib.AjaxPageSplitPanel,
             defaultPathTemplate: "{0}.html",

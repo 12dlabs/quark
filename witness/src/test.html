@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Witness</title>
+    <script src="https://g.alicdn.com/hub/quark/1.7.897/scripts/index.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://g.alicdn.com/hub/d3/3.5.16/d3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./visualization.js"></script>
+    <style type="text/css">
+        html, body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #main {
+  float: left;
+  width: 750px;
+}
+
+.witness-analysis-layer-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+#sunburst {
+    position: absolute;
+    width: 1000px;
+    height: 700px;
+    padding: 20px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translate(50%, 50px);
+    background-color: #FFF;
+}
+
+#sidebar {
+  float: right;
+  width: 100px;
+  max-height: 672px;
+  overflow: auto;
+}
+
+#sequence {
+  width: 600px;
+  height: 70px;
+}
+
+#legend {
+  padding: 10px 0 0 3px;
+}
+
+#sequence text, #legend text {
+  font-weight: 600;
+  fill: #fff;
+}
+
+#chart {
+  position: relative;
+}
+
+#chart path {
+  stroke: #fff;
+}
+
+#explanation {
+  position: absolute;
+  top: 260px;
+  left: 305px;
+  width: 140px;
+  text-align: center;
+  color: #666;
+  z-index: -1;
+}
+
+#percentage {
+  font-size: 2.5em;
+}
+
+#select {
+  position: absolute;
+  top: 600px;
+  left: 850px;
+}
+
+#loading {
+  position: absolute;
+  top: 370px;
+  left: 350px;
+  font-size: 14px;
+}
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+    window.onload = function() {
+        var w = 800;
+        var h = 600;
+
+        function Ele(id) {
+            this.id = id;
+            this.pos = {
+                x: w * Math.random() + 100,
+                y: h * Math.random() + 100
+            }
+        }
+
+        Ele.prototype.target = function() {
+            return 'element' + this.id;
+        };
+
+        Ele.prototype.position = function() {
+            return this.pos;
+        };
+
+        Ele.prototype.count = function() {
+            return 20 * Math.random() + 30;
+        };
+
+        var e1 = new Ele(1);
+        var e2 = new Ele(2);
+        var e3 = new Ele(3);
+        var e4 = new Ele(4);
+
+        var summary = [{
+                        "fromTarget": e1,
+                        "toTarget": e2,
+                        "count": 8,
+                        "averageDuration": 5000
+                      },
+                      {
+                        "fromTarget": e2,
+                        "toTarget": e1,
+                        "count": 8,
+                        "averageDuration": 20000
+                      },
+                      {
+                        "fromTarget": e1,
+                        "toTarget": e3,
+                        "count": 5,
+                        "averageDuration": 10000
+                      },
+                      {
+                        "fromTarget": e3,
+                        "toTarget": e4,
+                        "count": 4,
+                        "averageDuration": 15000
+                      }
+                    ];
+
+        var visualization = new Visualization('witness', summary);
+    };
+    </script>
+</body>
+</html>

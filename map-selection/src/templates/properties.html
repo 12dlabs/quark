@@ -1,0 +1,9 @@
+﻿<div data-bind="if: model()">
+    <h4 data-bind="text: model().name()"></h4>
+    <div data-bind="html: image(model().logo())"></div>
+    <ul data-bind="foreach: model().list()">
+        <li>
+            <span data-bind="text: value, attr: { title: name }"></span>
+        </li>
+    </ul>
+</div>

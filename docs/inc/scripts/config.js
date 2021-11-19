@@ -1,5 +1,5 @@
 ﻿(function () {
-    var refRootPath = false ? "http://g.alicdn.daily.taobao.net/hub/" : "http://g.alicdn.com/hub/";
+    var refRootPath = "https://g.alicdn.com/hub/";
     AliHub.Runtime.ModulexLoader.addAliasPrefix("~/inc/", "local/");
     AliHub.Runtime.ModulexLoader.addModule("local", "../../inc/", true);
     AliHub.Runtime.ModulexLoader.addModule("quark-panels", refRootPath + "quark-panels/0.5.46/");

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="ali-page">
+<head>
+    <meta charset="utf-8" />
+    <title>Form and uploader</title>
+    <script src="https://g.alicdn.com/hi/modulex/5.0.0/seed-debug.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://g.alicdn.com/tb/tracker/1.0.16/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://g.alicdn.com/hub/quark/1.7.898/scripts/kissyLoader.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://g.alicdn.com/hub/d3/3.5.16/d3.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/config.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        .witness-analysis-layer .witness-analysis-layer-mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .witness-analysis-layer .main {
+          float: left;
+          width: 500px;
+        }
+
+        .witness-analysis-layer .sunburst-container {
+            position: absolute;
+            width: 1400px;
+            height: 600px;
+            padding: 20px;
+            top: 0;
+            left: 0;
+            margin-left: -700px;
+            margin-top: -300px;
+            background-color: #FFF;
+        }
+
+        .witness-analysis-layer .sidebar {
+          float: right;
+          width: 100px;
+          max-height: 600px;
+          overflow: auto;
+        }
+
+        .witness-analysis-layer .sequence {
+          width: 500px;
+          height: 70px;
+        }
+
+        .witness-analysis-layer .legend {
+          padding: 10px 0 0 3px;
+        }
+
+        .witness-analysis-layer .sequence text, 
+        .witness-analysis-layer .legend text {
+          font-weight: 600;
+          fill: #fff;
+        }
+
+        .witness-analysis-layer .chart {
+          position: relative;
+        }
+
+        .witness-analysis-layer .chart path {
+          stroke: #fff;
+        }
+
+        .witness-analysis-layer .explanation {
+          position: absolute;
+          top: 240px;
+          left: 180px;
+          width: 140px;
+          text-align: center;
+          color: #666;
+          z-index: -1;
+        }
+
+        .witness-analysis-layer .percentage {
+          font-size: 2.5em;
+        }
+    </style>
+    <style type="text/css">
+        .page_demo_container {
+            position: relative;
+        }
+        .ali-x-field-t {
+            position: absolute;
+        }
+        .ali-x-field-t > button {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="page_demo_container" class="ali-demo-witness">
+        <div class="ali-x-field-t ali-x-field-a" style="top: 100px; left: 200px;">
+            <button witness-t="29456BEE-A7DE-434F-8AFC-A949930F198F">Hey!</button>
+        </div>
+        <div class="ali-x-field-t ali-x-field-b" style="top: 160px; left: 100px;">
+            <button witness-t="200D7347-E905-44F5-ADD5-6A4899180BE6">Wow!</button>
+        </div>
+        <div class="ali-x-field-t ali-x-field-c" style="top: 160px; left: 300px;">
+            <button witness-t="44AD9416-D280-43FC-83F5-32BBA9A8556F">Yoh!</button>
+        </div>
+        <div class="ali-x-field-t ali-x-field-d" style="top: 260px; left: 100px;">
+            <button witness-t="B04C9D8B-8179-432A-9631-0D287E5D5F82">Hah!</button>
+        </div>
+        <div class="ali-x-field-t ali-x-field-e" style="top: 260px; left: 300px;">
+            <button witness-t="EF7D8263-6B8A-46FF-8601-E1395C3F5647">Cut!</button>
+        </div>
+        <div class="ali-x-field-t ali-x-field-f" style="top: 320px; left: 200px;">
+            <button witness-t="7202B807-2EB8-49BB-A5D6-9A88740A27B5">Miu!</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        modulex.use("witness/js/common, witness/js/ui", function (witness, ui) {
+
+            // Sets URL templates.
+            witness.setUrlTemplates({
+                hitcollect: "../data/collect.json?app={app}&page={page}&track={track}&user={user}&target={target}&note={note}&step={step}&timestamp={timestamp}&previous={previous}&duration={duration}",
+                hitanalyze: "../data/receive.json?app={app}&page={page}"
+            });
+
+            witness.ElementsHitPool.pushInit(ui.Visualization.create);
+
+            // Initialize an elements hit pool.
+            var pool = new witness.ElementsHitPool("WitnessPortal", "Demo");
+
+            // For information collector, request to register the events in pages.
+            pool.registerSendEvents();
+
+            // For information summary viewer, request to load data from web when need, and show result.
+            pool.loadFromWeb().then(function (r) {
+                pool.analyzerVisible(true);
+            })
+        });
+    </script>
+</body>
+</html>

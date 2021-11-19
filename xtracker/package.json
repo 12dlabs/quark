@@ -1,0 +1,32 @@
+{
+  "name": "@ali/xtracker",
+  "version": "0.1.0-alpha",
+  "description": "XTracker clients and diagnostics.",
+  "main": "wwwroot/js/common.js",
+  "homepage": "http://flow.alibaba.net",
+  "keywords": [ "xtracker" ],
+  "devDependencies": {
+    "gulp": "3.8.11",
+    "gulp-concat": "2.5.2",
+    "gulp-cssmin": "0.1.7",
+    "gulp-uglify": "1.2.0",
+    "gulp-less": "3.0.5",
+    "gulp-react": "3.1.0",
+    "path": "0.12.7",
+    "rimraf": "2.2.8"
+  },
+  "dependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.alibaba-inc.com/hub/xtracker.git"
+  },
+  "author": {
+    "name": "Kingcean Tuan",
+    "email": "kingcean@live.com"
+  },
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  }
+}

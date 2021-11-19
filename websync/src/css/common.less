@@ -1,0 +1,141 @@
+﻿@charset "utf-8";
+
+.ali-websync-client-toolbar-basic > div.ali-container-menu {
+    background-color: #333;
+    padding: 4px;
+    position: relative;
+}
+
+.ali-websync-client-toolbar-basic > div.ali-container-menu > input {
+    color: white;
+    background-color: #555;
+    padding: 4px;
+    margin: 0;
+    border: 1px solid #666;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+
+.ali-websync-client-toolbar-basic > div.ali-container-menu > button {
+    color: white;
+    background-color: #555;
+    padding: 4px 8px;
+    margin: 0;
+    border: 1px solid #666;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+
+.ali-websync-client-toolbar-basic > ul.ali-x-section-view {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+    position: relative;
+    list-style: none;
+    overflow: hidden;
+    -webkit-transition: 1s;
+    transition: 1s;
+}
+
+.ali-websync-client-toolbar-basic > ul.ali-x-section-view > li {
+    padding: 0;
+    margin: 0;
+    display: block;
+    list-style: none;
+    -webkit-transition: 1s;
+    transition: 1s;
+}
+
+.ali-websync-client-toolbar-basic > ul.ali-x-section-view > li img {
+    -webkit-transition: 1s;
+    transition: 1s;
+}
+
+.ali-websync-pointer-remote-dot {
+    background: rgba(255, 255, 255, 0.6);
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    border-radius: 16px;
+}
+
+@keyframes ali-websync-pointer-remote-dot-increase {
+    from {
+        background: rgba(255, 255, 255, 0.2);
+        width: 48px;
+        height: 48px;
+        margin: -24px 0 0 -24px;
+    }
+    to {
+        background: rgba(255, 255, 255, 0.6);
+        width: 32px;
+        height: 32px;
+        margin: -16px 0 0 -16px;
+    }
+}
+@-webkit-keyframes ali-websync-pointer-remote-dot-increase {
+    from {
+        background: rgba(255, 255, 255, 0.2);
+        width: 48px;
+        height: 48px;
+        margin: -24px 0 0 -24px;
+    }
+    to {
+        background: rgba(255, 255, 255, 0.6);
+        width: 32px;
+        height: 32px;
+        margin: -16px 0 0 -16px;
+    }
+}
+.ali-websync-scenario-demo .ali-websync-pointer-remote-dot {
+    width: 32px;
+    height: 32px;
+    margin: -16px 0 0 -16px;
+    border-width: 0;
+    border-radius: 32px;
+    box-shadow: 0 0 4px black;
+    -webkit-animation: ali-websync-pointer-remote-dot-increase 0.2s;
+    animation: ali-websync-pointer-remote-dot-increase 0.2s;
+}
+
+.ali-websync-page-shot-t .ali-websync-panel-sensitivie-t {
+    color: transparent;
+}
+.ali-websync-page-shot-t .ali-websync-panel-sensitivie-t:before {
+    content: "******";
+    color: gray;
+}
+
+.ali-websync-client-toolbar-corner-main {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    box-shadow: 2px 2px 4px black;
+}
+
+.ali-websync-client-toolbar-corner {
+
+    .ali-websync-client-toolbar-basic > div.ali-container-menu {
+        .ali-websync-client-toolbar-corner-main();
+    }
+
+    .ali-websync-client-toolbar-basic > div.ali-container-menu > input {
+        color: #333;
+        background-color: #F9F9F9;
+        border: 1px solid #999;
+    }
+
+    .ali-websync-client-toolbar-basic > div.ali-container-menu > button {
+        color: #333;
+        background-color: #EEE;
+        border: 1px solid #999;
+        border-radius: 2px;
+    }
+}

@@ -1,0 +1,58 @@
+﻿@charset "utf-8";
+/*  --------------------
+ *  Player style - XTracker
+ *  (c) Kingcean Tuan, 2014.
+ *
+ *  File  player.less
+ *  Description  Player CSS.
+ *  Owner  Kingcean Tuan <kingcean@live.com>
+ *  --------------------  */
+.ali-control-xtracker-player {
+  position: relative;
+}
+.ali-control-xtracker-player > .ali-x-section-view {
+  background-color: rgba(32, 32, 32, 0.5);
+  position: relative;
+}
+.ali-control-xtracker-player > .ali-x-section-view > .ali-x-field-time {
+  color: #CCC;
+  text-shadow: 1px 1px 4px 1px rgba(32, 32, 32, 0.4);
+  top: 40px;
+  right: 20px;
+}
+.ali-control-xtracker-player > .ali-x-section-view > .ali-x-field-image {
+  max-width: 100%;
+}
+.ali-control-xtracker-player > .ali-x-section-view > .ali-x-field-hl {
+  background-color: rgba(240, 240, 240, 0.8);
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: -8px 0 0 -8px;
+  border: 1px solid white;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.ali-control-xtracker-player > .ali-x-section-logs {
+  display: none;
+  position: relative;
+}
+.ali-control-xtracker-player > .ali-x-section-menu {
+  color: #CCC;
+  background-color: rgba(32, 32, 32, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.ali-control-xtracker-player.ali-control-xtracker-player-full {
+  position: fixed;
+  z-index: 1000;
+}
+.ali-control-xtracker-player.ali-control-xtracker-player-full > .ali-x-section-menu {
+  position: fixed;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

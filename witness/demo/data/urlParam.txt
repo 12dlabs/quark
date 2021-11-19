@@ -1,0 +1,46 @@
+﻿Web service contracts
+
+_________________
+
+Send hit information
+
+GET
+?app=AliHub.Witness.Demo&page=abc&user=54820C27-320E-4896-B7A5-0BE5CAF4A6B9&step=13&track=AC1994E4-B1BD-45D0-8004-5724540D6B1E&note=Hello&timestamp=1463541600000&target=button2&previous=button1&duration=2000
+
+app 	string 	Application ID.
+page 	string 	Page ID.
+user 	string 	User ID. Additional.
+step 	int		The hit index in current tracking activity.
+track 	string 	The tracking activity ID which is per user, page and session.
+note 	string 	The note of the hit event. Additional.
+timestemp 	DateTime (tick)		Hit event timestamp.
+target	string	The current element ID.
+previous 	string 	The previous element ID.
+duration	number	The duration between previous and current hit. In milliseconds.
+
+RESPONSE
+null
+
+_________________
+
+Receive hits analysis
+
+GET
+?app=AliHub.Witness.Demo&page=abc
+
+app 	string 	Application ID.
+page 	string 	Page ID.
+
+RESPONSE
+JSON (DataPackage)
+
+summary		list 	A list of hits summary information about the relationship of 2 closed hits.
+- [n]	Object	The item.
+-- fromTarget 	string	The ID of element pointed from in the relationship.
+-- toTarget		string	The ID of element pointed to in the relationship.
+-- count	number	The count of the relationship.
+-- averageDuration	number	The average duration between these 2 hits.
+
+_________________
+
+http://witness.alibaba.net

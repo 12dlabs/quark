@@ -1,0 +1,162 @@
+﻿body.witness-analysis-button {
+    #witness_show_btn {
+        display: block;
+    }
+}
+
+#witness_show_btn {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 120px;
+    height: 40px;
+    background-color: orange;
+    border: 1px solid orange;
+    border-radius: 6px;
+    z-index: 10000001;
+    text-align: center;
+    line-height: 40px;
+    color: #FFF;
+    cursor: pointer;
+    display: none;
+}
+
+#witness_container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000000;
+
+    .witness-circles-group {
+        &.mode-summary {
+            g {
+                circle {
+                    display: none;
+                }
+
+                .summary-circle {
+                    display: block;
+                }  
+            }
+        }
+
+        .summary-circle {
+            display: none;
+        }
+    }
+
+    .witness-analysis-layer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+
+        
+
+        .witness-analysis-layer-mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .sunburst-container {
+            position: absolute;
+            width: 940px;
+            height: 400px;
+            padding: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -470px;
+            margin-top: -200px;
+            background-color: #FFF;
+
+            .sunburst {
+                display: inline-block;
+                width: 460px;
+                box-sizing: border-box;
+                padding-left: 30px;
+
+                .main {
+                    display: inline-block;
+                    width: 320px;
+                }
+                    
+                .sidebar {
+                    display: inline-block;
+                    width: 90px;
+                    max-height: 400px;
+                    overflow: auto;
+                }
+
+                .sequence {
+                    width: 300px;
+                    height: 60px;
+                }
+
+                .legend {
+                    padding: 10px 0 0 3px;
+                }
+
+                .sequence text, 
+                .legend text {
+                    font-weight: 600;
+                    fill: #fff;
+                }
+
+                .chart {
+                    position: relative;
+
+                    path {
+                        stroke: #fff;
+                    }
+                }
+
+                .explanation {
+                    position: absolute;
+                    top: 130px;
+                    left: 80px;
+                    width: 140px;
+                    text-align: center;
+                    color: #666;
+                }
+
+                .percentage {
+                    font-size: 2.5em;
+                }
+            }
+        }
+    }
+
+    .operate-area {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        line-height: 30px;
+        font-size: 14px;
+        background-color: rgba(255,255,255,0.5);
+        border: 1px solid rgba(128,128,128,0.4);
+        border-radius: 4px;
+        padding: 5px 20px;
+        vertical-align: middle;
+        color: #333;
+
+        & > div {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        select {
+            cursor: pointer;
+        }
+    }
+}
+

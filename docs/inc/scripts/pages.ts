@@ -192,13 +192,13 @@ function searchProvider(q: string): AliHub.Collection.ButtonInfoContract[] {
   * Sets up the page. 
   */
 export function setup(id: string, path: string) {
-    if ((AliHub.Diagnostics.tracker() as any).config) (AliHub.Diagnostics.tracker() as any).config("url", "http://fgt.quark.online.desktop");
+    // if ((AliHub.Diagnostics.tracker() as any).config) (AliHub.Diagnostics.tracker() as any).config("url", "http://fgt.quark.online.desktop");
     var split = splitlib.splitPage(id, {
         freeload: true,
         leftMenu: new MenuCollection(),
         path: path,
         searchProvider: searchProvider,
-        homeInfo: { name: "RDC", url: splitlib.getPath("~/library/reference/") },
+        homeInfo: { name: "12D Labs", url: "https://12dlabs.github.io") },
         pageMenu: menu,
         splitPanel: splitlib.AjaxPageSplitPanel,
         defaultPathTemplate: "{0}.html",

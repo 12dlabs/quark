@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "umd",
+    "outDir": "wwwroot/js/",
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "jsx": "react",
+    "pretty": true,
+    "sourceMap": false,
+    "declaration": true,
+    "target": "es5"
+  },
+  "compileOnSave": true,
+  "exclude": [
+    "Scripts/im.ts",
+    "node_modules",
+    "wwwroot"
+  ]
+}

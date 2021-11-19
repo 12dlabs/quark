@@ -1,0 +1,12 @@
+﻿[
+  {
+    "outputFile": "src/css/common.css",
+    "inputFile": "src/css/common.less",
+    "minify": {
+      "enabled": true
+    },
+    "includeInProject": true,
+    "sourceMap": false,
+    "options": {}
+  }
+]
