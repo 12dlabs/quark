@@ -77,7 +77,7 @@ define(["require", "exports"], function (require, exports) {
             usagesJs2: "You can initialize an instance of this class by following way. It binds a DOM for accessing and management.",
             usagesWebC: "This control also supports web component. You can set options or options generator function by attribute {0}.",
             usagesWebC2: "This control also supports web component.",
-            usagesFlipper: "For Flipper users, you can create a web component based this as following way. For details, visit {0}.",
+            usagesFlipper: "For Flipper users, you can create a web component based this as following way.",
             seeCommentDoc: "See comment documentation of {0}.",
             workWithFlipper: "Working together with Flipper",
             prereleased: "Note: This is a preview site which may be substantially modified before it's commercially released."

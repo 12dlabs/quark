@@ -74,7 +74,7 @@ define(["require", "exports"], function (require, exports) {
                 usagesJs2: "你可以在 JavaScript 中，通过绑定一个 DOM 元素，可以直接初始化一个该控件的实例，方便之后的访问。",
                 usagesWebC: "该控件支持 Web Component。可以直接对该 DOM 的 {0} 属性设置选项信息或其生成方法，Quark 会自动加载。",
                 usagesWebC2: "该控件也支持 Web Component。",
-                usagesFlipper: "对于 Flipper 用户，你可以基于该控件类创建一个 Web Component 以便于复用。更多详情，可参考{0}。",
+                usagesFlipper: "对于 Flipper 用户，你可以基于该控件类创建一个 Web Component 以便于复用。",
                 seeCommentDoc: "请通过 IDE 或相关工具查看 {0} 的代码注释文档。",
                 workWithFlipper: "对 Flipper 进行扩展",
                 prereleased: "提醒：当前站点为预览版，这意味着其中的内容可能会在未经提醒的情况下，随时进行修改。"

@@ -50,6 +50,11 @@ body.ali-page-l-show #ali_head_title a:active {
   color: #8CE;
   text-decoration: underline dashed;
 }
+body.ali-page-l-show ul#ali_head_menu {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  line-height: 52px;
+}
 body.ali-page-l-show ul#ali_head_menu > li a,
 body.ali-page-l-show ul#ali_head_menu > li a:visited,
 body.ali-page-l-show ul#ali_head_user > li a,
@@ -72,13 +77,26 @@ body.ali-page-l-show ul#ali_head_user > li a:active {
   text-decoration: underline dotted;
 }
 body.ali-page-l-show ul#ali_head_menu > li.ali-state-active-t.ali-container-menu {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
 }
 body.ali-page-l-show #ali_head_user_sear input[type=search] {
   color: #EEE;
-  background-color: #333;
-  border: 1px solid #888;
+  background-color: rgba(48, 48, 48, 0.6);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(128, 128, 128, 0.6) rgba(128, 128, 128, 0.6) rgba(192, 192, 192, 0.6) rgba(128, 128, 128, 0.6);
   border-radius: 4px;
+}
+body.ali-page-l-show #ali_head ul#ali_head_menu > li > ul, body.ali-page-l-show #ali_head ul#ali_head_user > li > ul {
+  background: rgba(48, 48, 48, 0.9);
+}
+body.ali-page-l-show #ali_head #ali_head_user > li > ul > li.ali-state-active-t > div.ali-container-main > a, body.ali-page-l-show #ali_head #ali_head_user > li > ul > li > div.ali-container-main > a:visited {
+  color: #EEE;
+  background-color: transparent;
+}
+body.ali-page-l-show #ali_head #ali_head_user > li > ul > li.ali-state-active-t > div.ali-container-main > a:hover, body.ali-page-l-show #ali_head #ali_head_user > li > ul > li > div.ali-container-main > a:active {
+  background-color: rgba(128, 128, 128, 0.1);
 }
 body.ali-page-l-show .ali-panel-split-len-2.ali-panel-split-t-page > table > tbody > tr > td:first-child {
   border-right-color: #444;
@@ -100,6 +118,7 @@ body.ali-page-l-show .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbo
 body.ali-page-l-show .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbody > tr > td:first-child > div.ali-container-main > ul > li:hover {
   color: #24a0ff;
   background-color: rgba(120, 120, 120, 0.2);
+  border-radius: 4px 0 0 4px;
 }
 body.ali-page-l-show .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbody > tr > td.ali-container-main > div.ali-container-main > code,
 body.ali-page-l-show .ali-panel-split-t-page.ali-panel-split-len-2 > table > tbody > tr > td.ali-container-main > div.ali-container-main > section > code {
