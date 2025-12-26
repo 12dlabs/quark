@@ -162,13 +162,15 @@ define(["require", "exports", "./common", "../../libs/quark-panels/scripts/split
       * Gets the top menu.
       */
     function menu() {
-        return [
-            {
-                id: "quark",
-                name: "Quark",
-                url: "../../library/reference/"
-            }
-        ];
+        return [{
+            id: "quark",
+            name: "Quark",
+            url: "../../library/reference/"
+        }, {
+            id: "kingcean",
+            name: "Kingcean.org",
+            url: "https://kingcean.org/"
+        }];
     }
     /**
       * Provides search schema.

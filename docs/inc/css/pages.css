@@ -9,7 +9,7 @@
  *  --------------------  */
 .ali-page body.ali-page-l-show {
   color: #CCC;
-  background-color: #333;
+  background-color: #222;
 }
 body.ali-page-l-show {
   color: #CCC;
@@ -26,20 +26,36 @@ body.ali-page-l-show a:active {
   color: white;
 }
 body.ali-page-l-show #ali_head {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: #333;
+  background-image: url(https://cdn.jsdelivr.net/npm/hje@2.2.0/docs/images/bg/org/title.jpg);
+  background-position: center top;
+  background-repeat: no-repeat;
 }
-body.ali-page-l-show #ali_head_title a {
-  color: #24a0ff;
-  -moz-user-select: none;
+body.ali-page-l-show #ali_head_title {
+  font-size: 20px;
+}
+body.ali-page-l-show #ali_head_title a, body.ali-page-l-show #ali_head_title a:visited {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  text-shadow: rgba(0, 0, 0, 0.7) 0 0 2px;  -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+body.ali-page-l-show #ali_head_title a:hover {
+  color: #9EF;
+  text-decoration: underline dashed;
+}
+body.ali-page-l-show #ali_head_title a:active {
+  color: #8CE;
+  text-decoration: underline dashed;
 }
 body.ali-page-l-show ul#ali_head_menu > li a,
 body.ali-page-l-show ul#ali_head_menu > li a:visited,
 body.ali-page-l-show ul#ali_head_user > li a,
 body.ali-page-l-show ul#ali_head_user > li a:visited {
-  color: #CCC;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: rgba(0, 0, 0, 0.7) 0 0 2px;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -47,10 +63,22 @@ body.ali-page-l-show ul#ali_head_user > li a:visited {
 }
 body.ali-page-l-show ul#ali_head_menu > li a:hover,
 body.ali-page-l-show ul#ali_head_user > li a:hover {
-  color: #24a0ff;
+  color: #9EF;
+  text-decoration: underline dotted;
+}
+body.ali-page-l-show ul#ali_head_menu > li a:active,
+body.ali-page-l-show ul#ali_head_user > li a:active {
+  color: #8CE;
+  text-decoration: underline dotted;
 }
 body.ali-page-l-show ul#ali_head_menu > li.ali-state-active-t.ali-container-menu {
-  background-color: rgba(80, 80, 80, 0.6);
+  background-color: transparent;
+}
+body.ali-page-l-show #ali_head_user_sear input[type=search] {
+  color: #EEE;
+  background-color: #333;
+  border: 1px solid #888;
+  border-radius: 4px;
 }
 body.ali-page-l-show .ali-panel-split-len-2.ali-panel-split-t-page > table > tbody > tr > td:first-child {
   border-right-color: #444;
@@ -101,6 +129,9 @@ body.ali-page-l-show .ali-x-section-code,
 body.ali-page-l-show code {
   color: #DDD;
   font-family: "Cascadia Code", consolas, monospace;
+  max-width: 600px;
+  overflow-x: auto;
+  scrollbar-color: rgba(128,128,128,0.2) transparent;
 }
 body.ali-page-l-show .ali-x-section-code .ali-x-code-comment,
 body.ali-page-l-show code .ali-x-code-comment {

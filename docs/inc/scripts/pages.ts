@@ -170,11 +170,14 @@ class MenuCollection {
   */
 function menu(): AliHub.Collection.ButtonInfoContract[] {
     return [{
-            id: "quark",
-            name: "Quark",
-            url: "../../library/reference/"
-        }
-    ];
+        id: "quark",
+        name: "Quark",
+        url: "../../library/reference/"
+    }, {
+        id: "kingcean",
+        name: "Kingcean.org",
+        url: "https://kingcean.org/"
+    }];
 }
 
 /**

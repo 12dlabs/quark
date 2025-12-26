@@ -25,7 +25,7 @@
 
 .ali-page body.ali-page-l-show {
     color: #CCC;
-    background-color: #333;
+    background-color: #222;
 }
 
 body.ali-page-l-show {
@@ -45,29 +45,64 @@ body.ali-page-l-show {
     }
     
     #ali_head {
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: #333;
+        background-image: url(https://cdn.jsdelivr.net/npm/hje@2.2.0/docs/images/bg/org/title.jpg);
+        background-position: center top;
+        background-repeat: no-repeat;
     }
     
     #ali_head_title a {
-        color: rgb(36, 160, 255);
+        font-size: 20px;
+    }
+
+    #ali_head_title a,
+    #ali_head_title a:visited {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        text-shadow: rgba(0, 0, 0, 0.7) 0 0 2px;
         .user-select-none();
+    }
+    
+    #ali_head_title a:hover {
+        color: #9EF;
+        text-decoration: underline dashed;
+    }
+    
+    #ali_head_title a:active {
+        color: #8CE;
+        text-decoration: underline dashed;
     }
 
     ul#ali_head_menu > li a,
     ul#ali_head_menu > li a:visited,
     ul#ali_head_user > li a,
     ul#ali_head_user > li a:visited {
-        color: #CCC;
+        color: rgba(255, 255, 255, 0.8);
+        text-shadow: rgba(0, 0, 0, 0.7) 0 0 2px;
         .user-select-none();
     }
 
     ul#ali_head_menu > li a:hover,
     ul#ali_head_user > li a:hover {
-        color: rgb(36, 160, 255);
+        color: #9EF;
+        text-decoration: underline dashed;
+    }
+
+    ul#ali_head_menu > li a:active,
+    ul#ali_head_user > li a:active {
+        color: #8CE;
+        text-decoration: underline dotted;
     }
 
     ul#ali_head_menu > li.ali-state-active-t.ali-container-menu {
-        background-color: rgba(80, 80, 80, 0.6);
+        background-color: transparent;
+    }
+
+    #ali_head_user_sear input[type=search] {
+        color: #EEE;
+        background-color: #333;
+        border: 1px solid #888;
+        border-radius: 4px;
     }
 
     .ali-panel-split-len-2.ali-panel-split-t-page > table > tbody > tr > td:first-child {
@@ -120,6 +155,9 @@ body.ali-page-l-show {
     .ali-x-section-code, code {
         color: #DDD;
         font-family: "Cascadia Code", consolas, monospace;
+        max-width: 600px;
+        overflow-x: auto;
+        scrollbar-color: rgba(128,128,128,0.2) transparent;
 
         .ali-x-code-comment {
             color: green;
